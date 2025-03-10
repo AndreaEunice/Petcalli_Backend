@@ -91,18 +91,7 @@ INSERT INTO rol
           
 -- SELECT * FROM rol;
 
-INSERT INTO address (fk_id_user, street, city, state, zip, country)
-VALUES 
-(1, 'Av. Revolucion', 'Monterrey', 'Nuevo León', 64000, 'México'),
-(2, 'Calle Hidalgo 456', 'Guadalajara', 'Jalisco', 44100, 'México'),
-(3, 'Av. Insurgentes Sur 798', 'Cuidad de México', 01000, 'Mexico'),
-(4, 'Calle 5 de Mayo 321', 'Mérida', 'Yucatán', 97000, 'México'),
-(5, 'Av. Benito Juárez 234', 'Puebla', 'Puebla', 72049, 'México'),
-(6, 'Lázaro Cárdenas 868', 'Tijuana', 'Baja California', 22000, 'México'),
-(7, 'Paseo de la Reforma 555', 'Cuidad de México', 'Cuidad de México', 06600, 'México'),
-(8, 'Calle Morelos 654', 'León', 'Guanajuato', 37000, 'México'),
-(9, 'Av. Univerirsidad 1020', 'Querétaro', 'Querétaro', 76500, 'México'),
-(10, 'Calle Independencia 908', 'Oaxaca', 'Oaxaca', 68000, 'México');
+
 
 
 
