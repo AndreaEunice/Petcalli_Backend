@@ -1,0 +1,1 @@
+-- Aqui insertamos los datos 5 por cada tabla
