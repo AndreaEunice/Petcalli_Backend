@@ -51,8 +51,17 @@ INSERT INTO products(id, title, brand, fk_id_petType, image, price, description,
  161.50, "Oxbow Enriched Life Bolas Rodadoras para Pequeñas Mascotas.", 
 2, "NA", "NA");
 
-
-
+-- Roles
+INSERT INTO rol
+      (id, client, vendor, guest, Description )
+   VALUES (1, 0, 0,1, "Invitado" ),
+		  (2, 1, 0, 0, "Cliente"),
+          (3, 1, 0, 0, "Cliente"),
+          (4, 1, 1, 0, "Cliente y Vendedor"),
+          (5, 0, 1, 0, "Vendedor"),
+          (6, 0, 0, 1, "Invitado");
+          
+-- SELECT * FROM rol;
 
 
 
