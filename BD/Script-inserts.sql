@@ -33,23 +33,25 @@ INSERT INTO products(id, title, brand, fk_id_petType, image, price, description,
     (1, "Mother & Babycat Comida Seca", "Royal Canin", 2,
  "https://cdn.royalcanin-weshare-online.io/rz_NTIcBRYZmsWpcJPUx/v56/00030111450036-cf-gs1?w=640&fm=jpg&auto=format,compress",
  610.00, "Nutricion completa y balanceada para gatos en gestion y lactancia, así como para sus cachorros (de 1 a 4 meses de edad) durante el destete.",
- 1, "NA", "1.3 KG"), 
+ 3, "NA", "1.3 KG"), 
     (2, "Mother & Babycat Comida Seca", "Royal Canin", 2,
 "https://cdn.royalcanin-weshare-online.io/rz_NTIcBRYZmsWpcJPUx/v56/00030111450036-cf-gs1?w=640&fm=jpg&auto=format,compress",
 855.00, "Nutricion completa y balanceada para gatos en gestion y lactancia, así como para sus cachorros (de 1 a 4 meses de edad) durante el destete.",
-1, "NA", "2.6 KG"), 
+3, "NA", "2.6 KG"), 
     (11, "Small Starter Mother & Babydog", "Royal Canin", 1, 
  "https://cdn.royalcanin-weshare-online.io/f-fQTYcBaPOZra8qVPyg/v71/00030111445148-cf-gs1?w=640&fm=jpg&auto=format,compress",
  470.00, "Nutrición completa y equilibrada para perros: para la madre pequeña (hasta 10 kg) y sus cachorros. Madre al final de la gestación y durante la lactancia. Cachorros en el destete hasta los 2 meses de edad.",
- 1, "NA", "1.1 KG"), 
+ 3, "NA", "1.1 KG"), 
     (12, "Small Starter Mother & Babydog", "Royal Canin", 1, 
  "https://cdn.royalcanin-weshare-online.io/f-fQTYcBaPOZra8qVPyg/v71/00030111445148-cf-gs1?w=640&fm=jpg&auto=format,compress", 
  "1630.00", "Nutrición completa y equilibrada para perros: para la madre pequeña (hasta 10 kg) y sus cachorros. Madre al final de la gestación y durante la lactancia. Cachorros en el destete hasta los 2 meses de edad.",
- 1, "NA", "6.3 KG"), 
+ 3, "NA", "6.3 KG"), 
     (45, "Bolas Rodadoras para Pequeñas Mascotas", "Oxbow", 3, 
  "https://www.petco.com.mx/medias/133191.jpg-300ftw?context=bWFzdGVyfHJvb3R8NjI5MTV8aW1hZ2UvanBlZ3xoYjcvaDVmLzk1NzU1MzcwNDk2MzAuanBnfDcxYTU3NmQ0Y2U4MzA2NjFiZGJmMGFlYTg5ODY0OTliZDJlNzFjOGU5YzJmMzRkYTVjZThlNTkxODYwZTMyNTA", 
  161.50, "Oxbow Enriched Life Bolas Rodadoras para Pequeñas Mascotas.", 
-2, "NA", "NA");
+4, "NA", "NA");
+
+
 
 -- Oreders
 INSERT INTO orders (id, fk_id_user, amount_products, date_time_order, total_price, payment_method)
@@ -69,19 +71,20 @@ INSERT INTO orders (id, fk_id_user, amount_products, date_time_order, total_pric
 VALUES
 (5, 2, 2, "2025-02-22 11:05:28", 579.5, "tarjeta_de_debito");
 
-/* Para agregar direcciones*/
-INSERT INTO address (fk_id_user, street, city, state, zip, country)
-VALUES 
-(1, 'Av. Revolucion', 'Monterrey', 'Nuevo León', 64000, 'México'),
-(2, 'Calle Hidalgo 456', 'Guadalajara', 'Jalisco', 44100, 'México'),
-(3, 'Av. Insurgentes Sur 798', 'Cuidad de México', 01000, 'Mexico'),
-(4, 'Calle 5 de Mayo 321', 'Mérida', 'Yucatán', 97000, 'México'),
-(5, 'Av. Benito Juárez 234', 'Puebla', 'Puebla', 72049, 'México'),
-(6, 'Lázaro Cárdenas 868', 'Tijuana', 'Baja California', 22000, 'México'),
-(7, 'Paseo de la Reforma 555', 'Cuidad de México', 'Cuidad de México', 06600, 'México'),
-(8, 'Calle Morelos 654', 'León', 'Guanajuato', 37000, 'México'),
-(9, 'Av. Univerirsidad 1020', 'Querétaro', 'Querétaro', 76500, 'México'),
-(10, 'Calle Independencia 908', 'Oaxaca', 'Oaxaca', 68000, 'México');
+
+
+-- Roles
+INSERT INTO rol
+      (id, client, vendor, guest, Description )
+   VALUES (1, 0, 0,1, "Invitado" ),
+		  (2, 1, 0, 0, "Cliente"),
+          (3, 1, 0, 0, "Cliente"),
+          (4, 1, 1, 0, "Cliente y Vendedor"),
+          (5, 0, 1, 0, "Vendedor"),
+          (6, 0, 0, 1, "Invitado");
+          
+-- SELECT * FROM rol;
+
 
 
 
