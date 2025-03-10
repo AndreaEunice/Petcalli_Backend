@@ -51,6 +51,23 @@ INSERT INTO products(id, title, brand, fk_id_petType, image, price, description,
  161.50, "Oxbow Enriched Life Bolas Rodadoras para Pequeñas Mascotas.", 
 2, "NA", "NA");
 
+-- Oreders
+INSERT INTO orders (id, fk_id_user, amount_products, date_time_order, total_price, payment_method)
+VALUES
+(2, 1, 1, "2025-02-18 05:37:11", 700.50, "tarjeta_de_debito");
+INSERT INTO orders (id, fk_id_user, amount_products, date_time_order, total_price, payment_method)
+VALUES
+(1, 2, 5, "2025-02-23 05:10:43", 802.75, "tarjeta_de_credito");
+SELECT * FROM orders;
+INSERT INTO orders (id, fk_id_user, amount_products, date_time_order, total_price, payment_method)
+VALUES
+(3, 1, 1, "2025-02-26 10:23:15", 451.25, "tarjeta_de_debito");
+INSERT INTO orders (id, fk_id_user, amount_products, date_time_order, total_price, payment_method)
+VALUES
+(4, 1, 3, "2025-02-15 08:11:32", 484.5, "tarjeta_de_credito");
+INSERT INTO orders (id, fk_id_user, amount_products, date_time_order, total_price, payment_method)
+VALUES
+(5, 2, 2, "2025-02-22 11:05:28", 579.5, "tarjeta_de_debito");
 
 
 
