@@ -51,7 +51,13 @@ INSERT INTO products(id, title, brand, fk_id_petType, image, price, description,
  161.50, "Oxbow Enriched Life Bolas Rodadoras para Pequeñas Mascotas.", 
 4, "NA", "NA");
 
-
+-- PetType
+INSERT INTO petType(id,pet_type,description) 
+VALUES(1,"Perros","Descubre todo sobre los perros, nuestros fieles compañeros. Desde razas, cuidados, alimentación y entrenamiento hasta consejos para su bienestar y salud. Encuentra información útil para brindarles una vida feliz y saludable."),
+	  (2,"Gatos","Explora el fascinante mundo de los gatos. Encuentra información sobre razas, cuidados, alimentación, comportamiento y salud felina. Descubre consejos para mejorar su bienestar y fortalecer el vínculo con tu minino."),
+      (3,"Conejos","Aprende todo sobre los conejos, adorables y curiosas mascotas. Descubre sus cuidados, alimentación, hábitat, comportamiento y consejos para garantizar su bienestar. Encuentra información útil para brindarles una vida sana y feliz."),
+      (4,"Aves","Descubre el maravilloso mundo de las aves. Encuentra información sobre especies, cuidados, alimentación, comportamiento y consejos para su bienestar. Aprende cómo proporcionarles un entorno adecuado y disfrutar de su compañía."),
+      (5,"Otros","Explora información sobre una variedad de mascotas y animales exóticos. Desde roedores y reptiles hasta peces e invertebrados, descubre sus cuidados, alimentación y consejos para brindarles un hogar adecuado y saludable.");
 
 -- Oreders
 INSERT INTO orders (id, fk_id_user, amount_products, date_time_order, total_price, payment_method)
