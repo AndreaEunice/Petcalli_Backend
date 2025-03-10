@@ -33,23 +33,23 @@ INSERT INTO products(id, title, brand, fk_id_petType, image, price, description,
     (1, "Mother & Babycat Comida Seca", "Royal Canin", 2,
  "https://cdn.royalcanin-weshare-online.io/rz_NTIcBRYZmsWpcJPUx/v56/00030111450036-cf-gs1?w=640&fm=jpg&auto=format,compress",
  610.00, "Nutricion completa y balanceada para gatos en gestion y lactancia, así como para sus cachorros (de 1 a 4 meses de edad) durante el destete.",
- 1, "NA", "1.3 KG"), 
+ 3, "NA", "1.3 KG"), 
     (2, "Mother & Babycat Comida Seca", "Royal Canin", 2,
 "https://cdn.royalcanin-weshare-online.io/rz_NTIcBRYZmsWpcJPUx/v56/00030111450036-cf-gs1?w=640&fm=jpg&auto=format,compress",
 855.00, "Nutricion completa y balanceada para gatos en gestion y lactancia, así como para sus cachorros (de 1 a 4 meses de edad) durante el destete.",
-1, "NA", "2.6 KG"), 
+3, "NA", "2.6 KG"), 
     (11, "Small Starter Mother & Babydog", "Royal Canin", 1, 
  "https://cdn.royalcanin-weshare-online.io/f-fQTYcBaPOZra8qVPyg/v71/00030111445148-cf-gs1?w=640&fm=jpg&auto=format,compress",
  470.00, "Nutrición completa y equilibrada para perros: para la madre pequeña (hasta 10 kg) y sus cachorros. Madre al final de la gestación y durante la lactancia. Cachorros en el destete hasta los 2 meses de edad.",
- 1, "NA", "1.1 KG"), 
+ 3, "NA", "1.1 KG"), 
     (12, "Small Starter Mother & Babydog", "Royal Canin", 1, 
  "https://cdn.royalcanin-weshare-online.io/f-fQTYcBaPOZra8qVPyg/v71/00030111445148-cf-gs1?w=640&fm=jpg&auto=format,compress", 
  "1630.00", "Nutrición completa y equilibrada para perros: para la madre pequeña (hasta 10 kg) y sus cachorros. Madre al final de la gestación y durante la lactancia. Cachorros en el destete hasta los 2 meses de edad.",
- 1, "NA", "6.3 KG"), 
+ 3, "NA", "6.3 KG"), 
     (45, "Bolas Rodadoras para Pequeñas Mascotas", "Oxbow", 3, 
  "https://www.petco.com.mx/medias/133191.jpg-300ftw?context=bWFzdGVyfHJvb3R8NjI5MTV8aW1hZ2UvanBlZ3xoYjcvaDVmLzk1NzU1MzcwNDk2MzAuanBnfDcxYTU3NmQ0Y2U4MzA2NjFiZGJmMGFlYTg5ODY0OTliZDJlNzFjOGU5YzJmMzRkYTVjZThlNTkxODYwZTMyNTA", 
  161.50, "Oxbow Enriched Life Bolas Rodadoras para Pequeñas Mascotas.", 
-2, "NA", "NA");
+4, "NA", "NA");
 
 
 
