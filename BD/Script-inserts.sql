@@ -1,4 +1,6 @@
 -- Aqui insertamos los datos 5 por cada tabla
+-- Productscategory
+
 INSERT INTO productscategory(id,name) 
 VALUES
 (1, 'Accesorios'),
@@ -18,16 +20,8 @@ INSERT INTO users (name, lastName, email, telephone, password)
         ('Jane', 'Goodall', 'jane.goodall@pets.com', '666-999-0000', 'ChimpR$8'), 
         ('José', 'Ernesto', 'jose.ernesto@pets.com', '111-333-2222', 'Ec0l0g!a'), 
         ('Carlos', 'Rodríguez', 'carlos.rodriguez@pets.com', '777-888-9999', 'VetL0v#9');
-        
-INSERT INTO address(street, city, state, zip, country)
-VALUES
-("Av. Paseo de la Reforma 123", "Ciudad de México", "Ciudad de México", 06500, "México"),
-("Calle Juárez 45", "Guadalajara", "Jalisco", 44100, "México"),
-("Av. Hidalgo 678", "Monterrey", "Nuevo León", 64000, "México"),
-("Calle Independencia 89", "Puebla", "Puebla", 72000, "México"),
-("Av. Revolución 321", "Mérida", "Yucatán", 97000, "México");
 
-
+-- Products
 INSERT INTO products(id, title, brand, fk_id_petType, image, price, description, fk_id_category, color, size)
  VALUES
     (1, "Mother & Babycat Comida Seca", "Royal Canin", 2,
@@ -80,39 +74,40 @@ VALUES
 
 
 -- Roles
-INSERT INTO rol
-      (id, client, vendor, guest, Description )
-   VALUES (1, 0, 0,1, "Invitado" ),
-		  (2, 1, 0, 0, "Cliente"),
-          (3, 1, 0, 0, "Cliente"),
-          (4, 1, 1, 0, "Cliente y Vendedor"),
-          (5, 0, 1, 0, "Vendedor"),
-          (6, 0, 0, 1, "Invitado");
-          
--- SELECT * FROM rol;
+INSERT INTO rol(id, client, vendor, guest, Description )
+   VALUES (1, 0, 0, 1, "Invitado" ),
+ (2, 1, 1, 0, "Cliente y vendedor"), 
+ (3, 1, 0, 0, "Cliente");
 
 
 /*Address*/
+
 INSERT INTO address (fk_id_user, street, city, state, zip, country)
 VALUES 
 (1, 'Av. Revolucion', 'Monterrey', 'Nuevo León', 64000, 'México'),
 (2, 'Calle Hidalgo 456', 'Guadalajara', 'Jalisco', 44100, 'México'),
-(3, 'Av. Insurgentes Sur 798', 'Cuidad de México', 01000, 'Mexico'),
+(3, 'Av. Insurgentes Sur 798', 'Cuidad de México', 'Cuidad de México', 01000, 'Mexico'),
 (4, 'Calle 5 de Mayo 321', 'Mérida', 'Yucatán', 97000, 'México'),
 (5, 'Av. Benito Juárez 234', 'Puebla', 'Puebla', 72049, 'México'),
 (6, 'Lázaro Cárdenas 868', 'Tijuana', 'Baja California', 22000, 'México'),
-(7, 'Paseo de la Reforma 555', 'Cuidad de México', 'Cuidad de México', 06600, 'México'),
-(8, 'Calle Morelos 654', 'León', 'Guanajuato', 37000, 'México'),
-(9, 'Av. Univerirsidad 1020', 'Querétaro', 'Querétaro', 76500, 'México'),
-(10, 'Calle Independencia 908', 'Oaxaca', 'Oaxaca', 68000, 'México');
+(7, 'Paseo de la Reforma 555', 'Cuidad de México', 'Cuidad de México', 06600, 'México');
 
 
+/*Coupons*/
 
-
-INSERT INTO coupons (id, start_valid_date, end_valid_date,code, purchase_limit,discount)
+INSERT INTO coupons (start_valid_date, end_valid_date, code, purchase_limit, discount)
 VALUES 
-(1,2025-02-22,2025-05-22,35245612,5000,.05)
-(2,2025-03-02,2025-06-02,23457890,1000,.25)
-(3,2025-02-01,2025-05-01,23345667,5000,.05)
-(4,2025-03-10,2025-06-10,33331113,500,.30)
-(5,2025-01-29,2025-04-29,23436688,3000,.10)
+("2025-02-22", "2025-05-22", 456.12, 5000.00, 000.05),
+("2025-03-02", "2025-06-02", 578.90, 1000.00, .25),
+("2025-02-01", "2025-05-01", 456.67, 5000.00, .05),
+("2025-03-10", "2025-06-10", 311.13, 500.00, .30),
+("2025-01-29", "2025-04-29", 366.88, 3000, .10);
+
+-- vendor
+INSERT INTO vendor(users_id, name_store, rfc, url, store_description, terms_conditions_url)
+VALUES
+(1, 'Pet Paradise', 'RFC123456P', 'http://petparadise.com', 'The ultimate paradise for pet lovers.', 'http://petparadise.com/terms'),
+(2, 'Happy Tails', 'RFC654321H', 'http://happytails.com', 'Where every tail wags with joy!', 'http://happytails.com/terms'),
+(3, 'Furry Friends', 'RFC789123F', 'http://furryfriends.com', 'Your pet\'s best friend in town.', 'http://furryfriends.com/terms'),
+(4, 'Paws & Claws', 'RFC321987C', 'http://pawsandclaws.com', 'Everything your pet needs under one roof.', 'http://pawsandclaws.com/terms'),
+(5, 'The Pet Hub', 'RFC456789T', 'http://thepethub.com', 'Connecting you with top pet essentials.', 'http://thepethub.com/terms');
