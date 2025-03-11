@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.41, for Win64 (x86_64)
 --
--- Host: localhost    Database: mydb
+-- Host: localhost    Database: Petcalli_v1
 -- ------------------------------------------------------
 -- Server version	8.0.41
 
@@ -336,7 +336,7 @@ CREATE TABLE `vendor` (
   `rfc` varchar(45) NOT NULL,
   `url` varchar(300) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `store_description` varchar(300) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
-  `terms&conditions_url` varchar(300) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `terms_conditions_url` varchar(300) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   PRIMARY KEY (`id`,`users_id`),
   KEY `fk_Vendor_users1_idx` (`users_id`),
   CONSTRAINT `fk_Vendor_users1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`)
@@ -353,7 +353,7 @@ LOCK TABLES `vendor` WRITE;
 UNLOCK TABLES;
 
 --
--- Dumping routines for database 'mydb'
+-- Dumping routines for database 'Petcalli_v1'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
