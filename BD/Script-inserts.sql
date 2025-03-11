@@ -107,7 +107,7 @@ VALUES
 (10, 'Calle Independencia 908', 'Oaxaca', 'Oaxaca', 68000, 'México');
 
 
-
+/*Coupons*/
 
 INSERT INTO coupons (id, start_valid_date, end_valid_date,code, purchase_limit,discount)
 VALUES 
