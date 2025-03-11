@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.41, for Win64 (x86_64)
 --
--- Host: localhost    Database: Petcalli_v1
+-- Host: localhost    Database: petcalli_test_1
 -- ------------------------------------------------------
 -- Server version	8.0.41
 
@@ -33,7 +33,7 @@ CREATE TABLE `address` (
   PRIMARY KEY (`id`,`fk_id_user`),
   KEY `fk_id_users_idx` (`fk_id_user`),
   CONSTRAINT `fk_id_users` FOREIGN KEY (`fk_id_user`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +42,7 @@ CREATE TABLE `address` (
 
 LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
+INSERT INTO `address` VALUES (1,1,'Av. Revolucion','Monterrey','Nuevo León',64000,'México'),(2,2,'Calle Hidalgo 456','Guadalajara','Jalisco',44100,'México'),(3,3,'Av. Insurgentes Sur 798','Cuidad de México','Cuidad de México',1000,'Mexico'),(4,4,'Calle 5 de Mayo 321','Mérida','Yucatán',97000,'México'),(5,5,'Av. Benito Juárez 234','Puebla','Puebla',72049,'México'),(6,6,'Lázaro Cárdenas 868','Tijuana','Baja California',22000,'México'),(7,7,'Paseo de la Reforma 555','Cuidad de México','Cuidad de México',6600,'México');
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,7 +61,7 @@ CREATE TABLE `coupons` (
   `purchase_limit` decimal(10,2) NOT NULL,
   `discount` decimal(5,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,6 +70,7 @@ CREATE TABLE `coupons` (
 
 LOCK TABLES `coupons` WRITE;
 /*!40000 ALTER TABLE `coupons` DISABLE KEYS */;
+INSERT INTO `coupons` VALUES (1,'2025-02-22','2025-05-22',456.12,5000.00,0.05),(2,'2025-03-02','2025-06-02',578.90,1000.00,0.25),(3,'2025-02-01','2025-05-01',456.67,5000.00,0.05),(4,'2025-03-10','2025-06-10',311.13,500.00,0.30),(5,'2025-01-29','2025-04-29',366.88,3000.00,0.10);
 /*!40000 ALTER TABLE `coupons` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,7 +119,7 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`id`,`fk_id_user`),
   KEY `fk_id_user_idx` (`fk_id_user`),
   CONSTRAINT `fk_id_user` FOREIGN KEY (`fk_id_user`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,6 +128,7 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES (1,2,5,'2025-02-23 05:10:43',802.75,'tarjeta_de_credito'),(2,1,1,'2025-02-18 05:37:11',700.50,'tarjeta_de_debito'),(3,1,1,'2025-02-26 10:23:15',451.25,'tarjeta_de_debito'),(4,1,3,'2025-02-15 08:11:32',484.50,'tarjeta_de_credito'),(5,2,2,'2025-02-22 11:05:28',579.50,'tarjeta_de_debito');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,7 +144,7 @@ CREATE TABLE `pettype` (
   `pet_type` varchar(100) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,6 +153,7 @@ CREATE TABLE `pettype` (
 
 LOCK TABLES `pettype` WRITE;
 /*!40000 ALTER TABLE `pettype` DISABLE KEYS */;
+INSERT INTO `pettype` VALUES (1,'Perros','Descubre todo sobre los perros, nuestros fieles compañeros. Desde razas, cuidados, alimentación y entrenamiento hasta consejos para su bienestar y salud. Encuentra información útil para brindarles una vida feliz y saludable.'),(2,'Gatos','Explora el fascinante mundo de los gatos. Encuentra información sobre razas, cuidados, alimentación, comportamiento y salud felina. Descubre consejos para mejorar su bienestar y fortalecer el vínculo con tu minino.'),(3,'Conejos','Aprende todo sobre los conejos, adorables y curiosas mascotas. Descubre sus cuidados, alimentación, hábitat, comportamiento y consejos para garantizar su bienestar. Encuentra información útil para brindarles una vida sana y feliz.'),(4,'Aves','Descubre el maravilloso mundo de las aves. Encuentra información sobre especies, cuidados, alimentación, comportamiento y consejos para su bienestar. Aprende cómo proporcionarles un entorno adecuado y disfrutar de su compañía.'),(5,'Otros','Explora información sobre una variedad de mascotas y animales exóticos. Desde roedores y reptiles hasta peces e invertebrados, descubre sus cuidados, alimentación y consejos para brindarles un hogar adecuado y saludable.');
 /*!40000 ALTER TABLE `pettype` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,7 +180,7 @@ CREATE TABLE `products` (
   KEY `fk_id_petType_idx` (`fk_id_petType`),
   CONSTRAINT `fk_id_category` FOREIGN KEY (`fk_id_category`) REFERENCES `productscategory` (`id`),
   CONSTRAINT `fk_id_petType` FOREIGN KEY (`fk_id_petType`) REFERENCES `pettype` (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,6 +189,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (1,'Mother & Babycat Comida Seca','Royal Canin',2,'https://cdn.royalcanin-weshare-online.io/rz_NTIcBRYZmsWpcJPUx/v56/00030111450036-cf-gs1?w=640&fm=jpg&auto=format,compress',610.00,'Nutricion completa y balanceada para gatos en gestion y lactancia, así como para sus cachorros (de 1 a 4 meses de edad) durante el destete.',3,'NA','1.3 KG'),(2,'Mother & Babycat Comida Seca','Royal Canin',2,'https://cdn.royalcanin-weshare-online.io/rz_NTIcBRYZmsWpcJPUx/v56/00030111450036-cf-gs1?w=640&fm=jpg&auto=format,compress',855.00,'Nutricion completa y balanceada para gatos en gestion y lactancia, así como para sus cachorros (de 1 a 4 meses de edad) durante el destete.',3,'NA','2.6 KG'),(11,'Small Starter Mother & Babydog','Royal Canin',1,'https://cdn.royalcanin-weshare-online.io/f-fQTYcBaPOZra8qVPyg/v71/00030111445148-cf-gs1?w=640&fm=jpg&auto=format,compress',470.00,'Nutrición completa y equilibrada para perros: para la madre pequeña (hasta 10 kg) y sus cachorros. Madre al final de la gestación y durante la lactancia. Cachorros en el destete hasta los 2 meses de edad.',3,'NA','1.1 KG'),(12,'Small Starter Mother & Babydog','Royal Canin',1,'https://cdn.royalcanin-weshare-online.io/f-fQTYcBaPOZra8qVPyg/v71/00030111445148-cf-gs1?w=640&fm=jpg&auto=format,compress',1630.00,'Nutrición completa y equilibrada para perros: para la madre pequeña (hasta 10 kg) y sus cachorros. Madre al final de la gestación y durante la lactancia. Cachorros en el destete hasta los 2 meses de edad.',3,'NA','6.3 KG'),(45,'Bolas Rodadoras para Pequeñas Mascotas','Oxbow',3,'https://www.petco.com.mx/medias/133191.jpg-300ftw?context=bWFzdGVyfHJvb3R8NjI5MTV8aW1hZ2UvanBlZ3xoYjcvaDVmLzk1NzU1MzcwNDk2MzAuanBnfDcxYTU3NmQ0Y2U4MzA2NjFiZGJmMGFlYTg5ODY0OTliZDJlNzFjOGU5YzJmMzRkYTVjZThlNTkxODYwZTMyNTA',161.50,'Oxbow Enriched Life Bolas Rodadoras para Pequeñas Mascotas.',4,'NA','NA');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -227,7 +232,7 @@ CREATE TABLE `productscategory` (
   `id` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -236,6 +241,7 @@ CREATE TABLE `productscategory` (
 
 LOCK TABLES `productscategory` WRITE;
 /*!40000 ALTER TABLE `productscategory` DISABLE KEYS */;
+INSERT INTO `productscategory` VALUES (1,'Accesorios'),(2,'Ropa'),(3,'Alimento'),(4,'Juguetes'),(5,'Medicamento');
 /*!40000 ALTER TABLE `productscategory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -253,7 +259,7 @@ CREATE TABLE `rol` (
   `guest` tinyint NOT NULL,
   `Description` varchar(300) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -262,6 +268,7 @@ CREATE TABLE `rol` (
 
 LOCK TABLES `rol` WRITE;
 /*!40000 ALTER TABLE `rol` DISABLE KEYS */;
+INSERT INTO `rol` VALUES (1,0,_binary '\0',1,'Invitado'),(2,1,_binary '',0,'Cliente y vendedor'),(3,1,_binary '\0',0,'Cliente');
 /*!40000 ALTER TABLE `rol` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -310,7 +317,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   UNIQUE KEY `userscol_UNIQUE` (`telephone`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -319,6 +326,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Cesar','Millan','cesar.millan@pets.com','123-456-7890','DogW!sp1'),(2,'Jackson','Galaxy','jackson.galaxy@pets.com','987-654-3210','CatD@ddy2'),(3,'Temple','Grandin','temple.grandin@pets.com','555-678-1234','An!m4lB3'),(4,'Juan','Villalobos','juan.villalobos@pets.com','444-222-5678','Perr!t05'),(5,'Jane','Goodall','jane.goodall@pets.com','666-999-0000','ChimpR$8'),(6,'José','Ernesto','jose.ernesto@pets.com','111-333-2222','Ec0l0g!a'),(7,'Carlos','Rodríguez','carlos.rodriguez@pets.com','777-888-9999','VetL0v#9');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -340,7 +348,7 @@ CREATE TABLE `vendor` (
   PRIMARY KEY (`id`,`users_id`),
   KEY `fk_Vendor_users1_idx` (`users_id`),
   CONSTRAINT `fk_Vendor_users1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -349,12 +357,9 @@ CREATE TABLE `vendor` (
 
 LOCK TABLES `vendor` WRITE;
 /*!40000 ALTER TABLE `vendor` DISABLE KEYS */;
+INSERT INTO `vendor` VALUES (1,1,'Pet Paradise','RFC123456P','http://petparadise.com','The ultimate paradise for pet lovers.','http://petparadise.com/terms'),(2,2,'Happy Tails','RFC654321H','http://happytails.com','Where every tail wags with joy!','http://happytails.com/terms'),(3,3,'Furry Friends','RFC789123F','http://furryfriends.com','Your pet\'s best friend in town.','http://furryfriends.com/terms'),(4,4,'Paws & Claws','RFC321987C','http://pawsandclaws.com','Everything your pet needs under one roof.','http://pawsandclaws.com/terms'),(5,5,'The Pet Hub','RFC456789T','http://thepethub.com','Connecting you with top pet essentials.','http://thepethub.com/terms'),(6,1,'Pet Paradise','RFC123456P','http://petparadise.com','The ultimate paradise for pet lovers.','http://petparadise.com/terms'),(7,2,'Happy Tails','RFC654321H','http://happytails.com','Where every tail wags with joy!','http://happytails.com/terms'),(8,3,'Furry Friends','RFC789123F','http://furryfriends.com','Your pet\'s best friend in town.','http://furryfriends.com/terms'),(9,4,'Paws & Claws','RFC321987C','http://pawsandclaws.com','Everything your pet needs under one roof.','http://pawsandclaws.com/terms'),(10,5,'The Pet Hub','RFC456789T','http://thepethub.com','Connecting you with top pet essentials.','http://thepethub.com/terms');
 /*!40000 ALTER TABLE `vendor` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping routines for database 'Petcalli_v1'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -365,4 +370,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-08 21:34:57
+-- Dump completed on 2025-03-10 19:56:35
