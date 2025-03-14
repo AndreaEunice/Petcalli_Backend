@@ -21,7 +21,7 @@ public class Product {
 	@Column( name = "brand", length = 45, nullable = false )
 	private String brand; // 45
 	
-	@Column( name = "fk", length = 10, nullable = false )
+	@Column( name = "fk", length = 50, nullable = false )
 	private String fk; // 00
 	
 	@Column( name = "image", length = 300, nullable = false )
@@ -33,7 +33,7 @@ public class Product {
 	@Column ( name = "description", length = 500, nullable = false )
 	private String description; // 500
 	
-	@Column( name = "fk2", length = 10, nullable = false )
+	@Column( name = "fk2", length = 50, nullable = false )
 	private String fk2; // 00
 	
 	@Column( name = "color", length = 45, nullable = true )
@@ -43,10 +43,8 @@ public class Product {
 	private String size; // 45
 	
 
-	Product(){
-		
+	Product(){	
 	}
-
 
 	public Product(Integer id, String title, String brand, String fk, String image, Double price, String description,
 			String fk2, String color, String size) {
