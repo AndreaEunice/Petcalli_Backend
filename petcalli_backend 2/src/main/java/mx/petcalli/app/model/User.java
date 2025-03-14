@@ -8,14 +8,9 @@ public class User {
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-<<<<<<< HEAD
 	private Integer id; 
 
 
-=======
-	private Integer id;
-	
->>>>>>> 3c132a3cc594da562bfd18bc6755e6bb462b4ef0
 	@Column(name = "name", length = 45, nullable = false)
 	private String name;
 
