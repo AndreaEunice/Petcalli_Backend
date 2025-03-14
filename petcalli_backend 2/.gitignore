@@ -33,5 +33,8 @@ out/
 /nbdist/
 /.nb-gradle/
 
-### VS Code ###
+# Ignorar la carpeta .vscode
 .vscode/
+
+# Ignorar el archivo build.gradle en la carpeta petcalli_backend 2
+petcalli_backend 2/build.gradle
