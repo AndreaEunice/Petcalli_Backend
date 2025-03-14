@@ -3,28 +3,28 @@ package mx.petcalli.app.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "rolls") 
-public class Roll  {
+@Table(name = "roles") 
+public class Role  {
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer id; 
 
-	@Column(name = "roll", length = 100, nullable = false)
-	private String roll;
+	@Column(name = "role", length = 100, nullable = false)
+	private String role;
 
         @Column(name = "description", length= 300, nullable = false)
 	private String description;
         
      
-      Roll() {
+      Role() {
     	  
       }
 
 
-	public Roll(Integer id, String roll, String description) {
+	public Role(Integer id, String role, String description) {
 		this.id = id;
-		this.roll = roll;
+		this.role = role;
 		this.description = description;
 	}
 
@@ -39,13 +39,13 @@ public class Roll  {
 	}
 
 
-	public String getRoll() {
-		return roll;
+	public String getRole() {
+		return role;
 	}
 
 
-	public void setRoll(String roll) {
-		this.roll = roll;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 
@@ -62,10 +62,10 @@ public class Roll  {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Roll [id=");
+		builder.append("Role [id=");
 		builder.append(id);
-		builder.append(", roll=");
-		builder.append(roll);
+		builder.append(", role=");
+		builder.append(role);
 		builder.append(", description=");
 		builder.append(description);
 		builder.append("]");
