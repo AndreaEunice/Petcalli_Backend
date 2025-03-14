@@ -1,7 +1,5 @@
 package mx.petcalli.app.model;
 
-import java.time.LocalDate;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -28,7 +26,7 @@ public class Vendor  {
 	private String storeDescription;  
 	
     @Column(name = "terms_condition_url", length = 300, nullable = true)
-	private LocalDate termsConditionUrl;
+	private String termsConditionUrl;
 	
     
     Vendor(){
@@ -37,7 +35,7 @@ public class Vendor  {
 
 
 	public Vendor(Integer id, Integer usersId, String nameStore, String rfc, String url, String storeDescription,
-			LocalDate termsConditionUrl) {
+			String termsConditionUrl) {
 		this.id = id;
 		this.usersId = usersId;
 		this.nameStore = nameStore;
@@ -108,12 +106,12 @@ public class Vendor  {
 	}
 
 
-	public LocalDate getTermsConditionUrl() {
+	public String getTermsConditionUrl() {
 		return termsConditionUrl;
 	}
 
 
-	public void setTermsConditionUrl(LocalDate termsConditionUrl) {
+	public void setTermsConditionUrl(String termsConditionUrl) {
 		this.termsConditionUrl = termsConditionUrl;
 	}
 

@@ -1,3 +1,4 @@
 /.metadata/
 petcalli_backend 2/build.gradle
 .vscode/settings.json
+.DS_Store
