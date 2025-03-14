@@ -19,7 +19,7 @@ public class Address {
 	private String city;
 
 	@Column(name = "state", length = 100, nullable = false)
-	private Double state;
+	private String state;
 
 	@Column(name = "zip", nullable = false)
 	private Integer zip;
@@ -31,7 +31,7 @@ Address (){
 	
 }
 
-public Address(Integer id, Integer fkUsersId, String street, String city, Double state, Integer zip, String country) {
+public Address(Integer id, Integer fkUsersId, String street, String city, String state, Integer zip, String country) {
 	this.id = id;
 	this.fkUsersId = fkUsersId;
 	this.street = street;
@@ -73,11 +73,11 @@ public void setCity(String city) {
 	this.city = city;
 }
 
-public Double getState() {
+public String getState() {
 	return state;
 }
 
-public void setState(Double state) {
+public void setState(String state) {
 	this.state = state;
 }
 
