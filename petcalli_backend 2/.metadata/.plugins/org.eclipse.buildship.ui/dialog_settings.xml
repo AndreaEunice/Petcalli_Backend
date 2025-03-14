@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.buildship.ui.wizard.project.import">
+		<item key="apply_working_sets" value="true"/>
+		<item key="project_location" value="C:\generation2\petcalli\Petcalli_BackEnd\Petcalli_Backend"/>
+		<list key="working_sets">
+		</list>
+		<section name="ProjectImportWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="534"/>
+			<item key="DIALOG_Y_ORIGIN" value="11"/>
+			<item key="DIALOG_WIDTH" value="875"/>
+			<item key="DIALOG_HEIGHT" value="1008"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="org.eclipse.buildship.ui.wizard.project.creation">
+		<item key="use_default_location" value="false"/>
+		<item key="project_location" value="C:\generation2\petcalli\Petcalli_BackEnd\Petcalli_Backend\petcalli_backend 2\PETCALLI BACKEND"/>
+		<item key="custom_location" value="C:\generation2\petcalli\Petcalli_BackEnd\Petcalli_Backend\petcalli_backend 2"/>
+		<section name="ProjectCreationWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="534"/>
+			<item key="DIALOG_Y_ORIGIN" value="11"/>
+			<item key="DIALOG_WIDTH" value="1067"/>
+			<item key="DIALOG_HEIGHT" value="1008"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+</section>
