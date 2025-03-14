@@ -20,4 +20,3 @@ public class VendorDataLoader implements CommandLineRunner {
 		
 	}
 }
-
