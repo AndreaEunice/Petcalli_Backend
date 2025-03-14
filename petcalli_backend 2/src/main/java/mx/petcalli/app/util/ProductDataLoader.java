@@ -47,7 +47,6 @@ public class ProductDataLoader implements CommandLineRunner {
 		"Formulada para gatos adultos con sensibilidad en el tracto digestivo.",
 		"fk2", "NA", "2.8 kg"));
 		
-		
 
 	}
 	}
