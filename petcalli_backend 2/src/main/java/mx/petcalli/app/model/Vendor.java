@@ -1,7 +1,5 @@
 package mx.petcalli.app.model;
 
-import java.time.LocalDate;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -28,6 +26,7 @@ public class Vendor  {
 	private String storeDescription;  
 	
     @Column(name = "terms_conditions_url", length = 300, nullable = true)
+
 	private String termsConditionUrl;
 	
     
