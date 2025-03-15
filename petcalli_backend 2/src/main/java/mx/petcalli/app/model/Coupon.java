@@ -19,7 +19,7 @@ public class Coupon  {
 	private LocalDate endValidDate;
 
 	@Column(name = "code", nullable = false, unique = true )
-	private Double code;
+	private String code;
 
 	@Column(name = "purchase_limit", nullable = false)
 	private Double purchaseLimit;
@@ -31,7 +31,7 @@ public class Coupon  {
 		
 	}
 
-	public Coupon(Integer id, LocalDate startValidDate, LocalDate endValidDate, Double code, Double purchaseLimit,
+	public Coupon(Integer id, LocalDate startValidDate, LocalDate endValidDate, String code, Double purchaseLimit,
 			Double discount) {
 		this.id = id;
 		this.startValidDate = startValidDate;
@@ -65,11 +65,11 @@ public class Coupon  {
 		this.endValidDate = endValidDate;
 	}
 
-	public Double getCode() {
+	public String getCode() {
 		return code;
 	}
 
-	public void setCode(Double code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 
