@@ -16,7 +16,7 @@ public interface CouponRepository extends CrudRepository<Coupon, Integer>, Pagin
 	Set<Coupon> findByCode(Double code);
 	Set<Coupon> findByPurchaseLimit(Double purchaseLimit);
 	Set<Coupon> findByDiscount(Double dicount);
-	
+
 
 	Page<Coupon> findAllByActiveTrue(Pageable pageable);
 	Page<Coupon> findAllByActiveFalse(Pageable pageable);
