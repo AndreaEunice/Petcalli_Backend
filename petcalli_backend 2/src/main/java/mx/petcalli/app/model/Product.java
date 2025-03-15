@@ -1,11 +1,7 @@
 package mx.petcalli.app.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 
 @Entity
 @Table(name = "products")
@@ -14,31 +10,22 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private	Integer id;
-	
 	@Column( name = "title", length = 200, nullable = false )
 	private String title; // 200
-	
 	@Column( name = "brand", length = 45, nullable = false )
 	private String brand; // 45
-	
-	@Column( name = "fk", length = 50, nullable = false )
-	private String fk; // 00
-	
+	@Column( name = "fk1", length = 50, nullable = false )
+	private String fk1; // 00
 	@Column( name = "image", length = 300, nullable = false )
 	private String image; // 300
-	
 	@Column ( name = "price", nullable = false)
 	private Double price;
-	
 	@Column ( name = "description", length = 500, nullable = false )
 	private String description; // 500
-	
 	@Column( name = "fk2", length = 50, nullable = false )
 	private String fk2; // 00
-	
 	@Column( name = "color", length = 45, nullable = true )
 	private String color; // 45
-	
 	@Column( name = "size", length = 45, nullable = true )
 	private String size; // 45
 	
@@ -46,12 +33,12 @@ public class Product {
 	Product(){	
 	}
 
-	public Product(Integer id, String title, String brand, String fk, String image, Double price, String description,
+	public Product(Integer id, String title, String brand, String fk1, String image, Double price, String description,
 			String fk2, String color, String size) {
 		this.id = id;
 		this.title = title;
 		this.brand = brand;
-		this.fk = fk;
+		this.fk1 = fk1;
 		this.image = image;
 		this.price = price;
 		this.description = description;
@@ -91,13 +78,13 @@ public class Product {
 	}
 
 
-	public String getFk() {
-		return fk;
+	public String getFk1() {
+		return fk1;
 	}
 
 
-	public void setFk(String fk) {
-		this.fk = fk;
+	public void setF1k(String fk1) {
+		this.fk1 = fk1;
 	}
 
 
@@ -170,8 +157,8 @@ public class Product {
 		builder.append(title);
 		builder.append(", brand=");
 		builder.append(brand);
-		builder.append(", fk=");
-		builder.append(fk);
+		builder.append(", fk1=");
+		builder.append(fk1);
 		builder.append(", image=");
 		builder.append(image);
 		builder.append(", price=");
