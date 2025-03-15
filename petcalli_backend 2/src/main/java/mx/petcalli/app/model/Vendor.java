@@ -27,8 +27,8 @@ public class Vendor  {
 	@Column(name = "store_description", length = 300, nullable = false)
 	private String storeDescription;  
 	
-    @Column(name = "terms_condition_url", length = 300, nullable = true)
-	private LocalDate termsConditionUrl;
+    @Column(name = "terms_conditions_url", length = 300, nullable = true)
+	private String termsConditionUrl;
 	
     
     Vendor(){
@@ -37,7 +37,7 @@ public class Vendor  {
 
 
 	public Vendor(Integer id, Integer usersId, String nameStore, String rfc, String url, String storeDescription,
-			LocalDate termsConditionUrl) {
+			String termsConditionUrl) {
 		this.id = id;
 		this.usersId = usersId;
 		this.nameStore = nameStore;
@@ -108,12 +108,12 @@ public class Vendor  {
 	}
 
 
-	public LocalDate getTermsConditionUrl() {
+	public String getTermsConditionUrl() {
 		return termsConditionUrl;
 	}
 
 
-	public void setTermsConditionUrl(LocalDate termsConditionUrl) {
+	public void setTermsConditionUrl(String termsConditionUrl) {
 		this.termsConditionUrl = termsConditionUrl;
 	}
 
