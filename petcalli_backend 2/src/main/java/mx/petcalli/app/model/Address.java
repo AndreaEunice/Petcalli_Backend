@@ -31,9 +31,7 @@ Address (){
 	
 }
 
-public Address(Integer id, Integer fkUsersId, String street, String city, String state, Integer zip, String country) {
-	this.id = id;
-	this.fkUsersId = fkUsersId;
+public Address(String street, String city, String state, Integer zip, String country) {
 	this.street = street;
 	this.city = city;
 	this.state = state;
