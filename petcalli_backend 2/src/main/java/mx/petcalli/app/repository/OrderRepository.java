@@ -17,6 +17,6 @@ Set<Order>findByDateTimeOrder(LocalDate dateTimeOrders);
 Set<Order>findByTotalPrice(Double totalPrice);
 Set<Order>findByPaymentMethod(String paymentMethod);
 
-Page<Order> findAllByActiveTrue(Pageable pageable);
-Page<Order> findAllByActiveFalse(Pageable pageable);
+// Page<Order> findAllByActiveTrue(Pageable pageable);
+// Page<Order> findAllByActiveFalse(Pageable pageable);
 }

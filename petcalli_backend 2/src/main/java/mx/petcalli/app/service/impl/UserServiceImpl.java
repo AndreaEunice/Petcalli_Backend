@@ -1,4 +1,4 @@
-UserServiceImpl.java
+/*UserServiceImpl.java
 package mx.petcalli.app.service.Impl;
 
 import java.time.LocalDateTime;
@@ -74,4 +74,4 @@ User existingUser = getUserById(id);
 existingUser.setActive(false);
 userRepository.save(existingUser);
 }
-}
+}*/

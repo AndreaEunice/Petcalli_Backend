@@ -8,12 +8,13 @@ public interface ProductRepository extends CrudRepository<Product, Integer>, Pag
 
 	Iterable<Product> findByTitle(String title);
 	Iterable<Product> findByBrand(String brand);
-	Iterable<Product> findByFk1(Integer Fk1);
+	Iterable<Product> findByFk1(String Fk1);
 	Iterable<Product> findByImage(String image);
 	Iterable<Product> findByPrice(Double price);
 	Iterable<Product> findByDescription(String description);
-	Iterable<Product> findByFk2(Integer Fk2);
+	Iterable<Product> findByFk2(String Fk2);
 	Iterable<Product> findBycolor(String color);
 	Iterable<Product> findBysize(String size);
 	
 }
+
