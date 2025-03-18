@@ -1,5 +1,7 @@
 package mx.petcalli.app.service.impl;
 
+import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.springframework.data.domain.Page;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import mx.petcalli.app.repository.ProductRepository;
 import mx.petcalli.app.service.ProductService;
+import mx.petcalli.app.model.Product;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -19,93 +22,88 @@ public class ProductServiceImpl implements ProductService {
 	
 	
 	@Override
-	public mx.petcalli.app.model.Product createProduct(mx.petcalli.app.model.Product product) {
-		// TODO Auto-generated method stub
+	public Product createProduct(Product product) {
 		return null;
 	}
 
 	@Override
-	public mx.petcalli.app.model.Product getProductById(Integer id) {
-		// TODO Auto-generated method stub
+	public Product getProductById(int id) {
 		return null;
 	}
 
 	@Override
-	public mx.petcalli.app.model.Product getProductByTitle(String title) {
-		// TODO Auto-generated method stub
+	public Product getProductByTitle(String title) {
 		return null;
 	}
 
 	@Override
-	public mx.petcalli.app.model.Product getProductByBrand(String brand) {
-		// TODO Auto-generated method stub
+	public Product getProductByBrand(String brand) {
 		return null;
 	}
 
 	@Override
-	public mx.petcalli.app.model.Product getProductByFk1(String fk1) {
-		// TODO Auto-generated method stub
+	public Product getProductByFk1(String fk1) {
 		return null;
 	}
 
 	@Override
-	public mx.petcalli.app.model.Product getProductByImage(String image) {
-		// TODO Auto-generated method stub
+	public Product getProductByImage(String image) {
 		return null;
 	}
 
 	@Override
-	public mx.petcalli.app.model.Product getProductByPrice(Double price) {
-		// TODO Auto-generated method stub
+	public Product getProductByPrice(Double price) {
 		return null;
 	}
 
 	@Override
-	public mx.petcalli.app.model.Product getProductByDescription(String description) {
-		// TODO Auto-generated method stub
+	public Product getProductByDescription(String description) {
 		return null;
 	}
 
 	@Override
-	public mx.petcalli.app.model.Product getProductByFk2(String fk2) {
-		// TODO Auto-generated method stub
+	public Product getProductByFk2(String fk2) {
 		return null;
 	}
 
 	@Override
-	public mx.petcalli.app.model.Product getProductByColor(String color) {
-		// TODO Auto-generated method stub
+	public Product getProductByColor(String color) {
 		return null;
 	}
 
 	@Override
-	public mx.petcalli.app.model.Product getProductBySize(String size) {
-		// TODO Auto-generated method stub
+	public Product getProductBySize(String size) {
 		return null;
 	}
 
 	@Override
-	public Set<mx.petcalli.app.model.Product> getAllProducts() {
-		// TODO Auto-generated method stub
+	public Page<Product> getAllProducts(int pageNumber, int pageSize) {
 		return null;
 	}
-
+	
 	@Override
-	public Page<mx.petcalli.app.model.Product> getAllProducts(int pageNumber, int pageSize) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public mx.petcalli.app.model.Product updateProduct(mx.petcalli.app.model.Product product, Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void Product(Integer id) {
-		// TODO Auto-generated method stub
+	public Set<Product> getAllProducts() {
 		
+		Iterable<Product> productsIterable = productRepository.findAll();
+		return new LinkedHashSet<>((Collection<Product>)productsIterable );
 	}
 
+	@Override
+ 	public Product updateProduct(Product product, int id) {
+ 		return null;
+ 	}
+ 
+ 	@Override
+ 	public void deleteProduct(int id) {
+ 
+ 	}
+ 	
+ 	
+ 
+
+
+
+
+	
+	
 }

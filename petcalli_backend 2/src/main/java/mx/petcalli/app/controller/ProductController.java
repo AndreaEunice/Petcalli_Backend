@@ -8,15 +8,18 @@ import mx.petcalli.app.model.Product;
 
 public interface ProductController {
 
-	Product getProductById(Double id);
-	ResponseEntity<Product> getProductByIdUsingResponseEntity(Long id);
+	Product getProductById(int id);
 	
-	// Set<Product>getAllProducts();
+	
+	ResponseEntity<Product> getProductByIdUsingResponseEntity(int id);
+	
 	ResponseEntity< Set<Product>> getAllProducts();
 	
 	ResponseEntity<Product> createProduct(Product newProduct);
-	ResponseEntity<Product> updateProduct(Product product, Long id);
-	ResponseEntity<Void> deleteProduct(Double id); // 204 no hay contenido en la respuesta
+	
+	ResponseEntity<Product> updateProduct(Product product, int id);
+	
+	ResponseEntity<Void> deleteProduct(int id); 
 	
 	
 	
