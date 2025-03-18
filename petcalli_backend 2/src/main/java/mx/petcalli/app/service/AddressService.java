@@ -27,8 +27,6 @@ public interface AddressService {
 	
 	//Se elimina una dirección
 	
-	void deleteAddress(Integer id);
-	
-	
+	void deleteAddress(Integer id);	
 	
 }
