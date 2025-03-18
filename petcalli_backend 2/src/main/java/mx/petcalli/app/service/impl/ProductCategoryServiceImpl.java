@@ -1,5 +1,8 @@
 package mx.petcalli.app.service.impl;
 
+import java.time.LocalDateTime;
+import java.util.Optional;
+
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
@@ -19,14 +22,24 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 	
 	@Override
 	public ProductCategory createProductCategory(ProductCategory productCategory) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<ProductCategory> optionalProductCategory = productCategoryRepository.findByname(productCategory.getName());
+		if(optionalProductCategory.isPresent()) {
+			throw new IllegalStateException("This category already exist with the name: " + productCategory.getName());
+		}
+		// TODO Verify if the attributes are valid
+		productCategory.setId(null); // Create the product category
+		ProductCategory newProductCategory = productCategoryRepository.save( productCategory );
+		return newProductCategory;
 	}
 
 	@Override
 	public ProductCategory getProductCategoryById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<ProductCategory> optionalProductCategory = productCategoryRepository.findById(id);
+		if( optionalProductCategory.isEmpty()) {
+			throw new IllegalStateException("Product Category does not exist with id: " + id);
+		}
+		ProductCategory existingProductCategory = optionalProductCategory.get();
+		return existingProductCategory;
 	}
 
 	@Override
