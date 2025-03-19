@@ -19,39 +19,36 @@ public class VendorControllerImpl implements VendorController{
 		this.vendorService = vendorService;
 	}
 	@Override
-	public ResponseEntity<PetType> getPetTypeId(int id) {
-		// TODO Auto-generated method stub
+	public ResponseEntity<Vendor> getVendorId(int id) {
 		return null;
 	}
 
 	@Override
-	public ResponseEntity<PetType> getByPetType() {
-		// TODO Auto-generated method stub
+	public ResponseEntity<Vendor> getByVendor() {
 		return null;
 	}
 	
-	@GetMapping("api/v1/petTypes")
+	@GetMapping("api/v1/Vendors")
 	@Override
-	public ResponseEntity<Set<PetType>> getAllPetTypes() {
-		// TODO Auto-generated method stub
+	public ResponseEntity<Set<Vendor>> getAllVendor() {
 		return null;
 	}
 
 	@Override
-	public ResponseEntity<PetType> createProduct(PetType newPetType) {
-		// TODO Auto-generated method stub
+	public ResponseEntity<Vendor> createVendor(Vendor newVendor) {
+		
 		return null;
 	}
 
 	@Override
-	public ResponseEntity<PetType> updateProduct(PetType petType, int id) {
-		// TODO Auto-generated method stub
+	public ResponseEntity<Vendor> updateVendor(Vendor vendor, int id) {
+
 		return null;
 	}
 
 	@Override
-	public ResponseEntity<Void> deleteProduct(int id) {
-		// TODO Auto-generated method stub
+	public ResponseEntity<Void> deleteVendor(int id) {
+		
 		return null;
 	}
 	
