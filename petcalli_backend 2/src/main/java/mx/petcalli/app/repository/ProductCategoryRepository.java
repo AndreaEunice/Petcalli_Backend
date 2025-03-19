@@ -13,6 +13,6 @@ import mx.petcalli.app.model.ProductCategory;
 public interface ProductCategoryRepository extends CrudRepository<ProductCategory, Integer>, PagingAndSortingRepository<ProductCategory, Integer> {
 	Set<ProductCategory> findByname(String name);
 	
-	Page<Order> findAllByActiveTrue(Pageable pageable);
-	Page<Order> findAllByActiveFalse(Pageable pageable);
+	// Page<Order> findAllByActiveTrue(Pageable pageable);
+	// Page<Order> findAllByActiveFalse(Pageable pageable);
 }

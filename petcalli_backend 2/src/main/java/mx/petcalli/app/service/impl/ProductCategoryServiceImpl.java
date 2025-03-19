@@ -3,7 +3,6 @@ package mx.petcalli.app.service.impl;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
-import com.ecommerce.app.repository.CustomerRepository;
 
 import mx.petcalli.app.model.ProductCategory;
 import mx.petcalli.app.repository.ProductCategoryRepository;

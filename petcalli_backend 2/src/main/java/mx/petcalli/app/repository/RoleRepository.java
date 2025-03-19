@@ -9,7 +9,7 @@ import mx.petcalli.app.model.Role;
 
 
 public interface RoleRepository  extends CrudRepository<Role, Integer>, PagingAndSortingRepository<Role, Integer>{
-	Set<Role> findByRoll(String role);
+	Set<Role> findByRole(String role);
 	Set<Role> findByDescription(String description );
 	
 	
