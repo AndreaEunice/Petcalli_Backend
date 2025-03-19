@@ -13,12 +13,12 @@ public interface CouponRepository extends CrudRepository<Coupon, Integer>, Pagin
 
 	Set<Coupon> findByStartValidDate(LocalDate startValidDate);
 	Set<Coupon> findByEndValidDate(LocalDate endValidDate);
-	Set<Coupon> findByCode(Double code);
+	Set<Coupon> findByCode(String code);
 	Set<Coupon> findByPurchaseLimit(Double purchaseLimit);
 	Set<Coupon> findByDiscount(Double dicount);
-	
 
-	Page<Coupon> findAllByActiveTrue(Pageable pageable);
-	Page<Coupon> findAllByActiveFalse(Pageable pageable);
+
+	// Page<Coupon> findAllByActiveTrue(Pageable pageable);
+	// Page<Coupon> findAllByActiveFalse(Pageable pageable);
 	
 }

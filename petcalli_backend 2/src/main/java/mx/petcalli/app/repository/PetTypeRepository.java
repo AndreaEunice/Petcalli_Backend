@@ -9,12 +9,9 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 import mx.petcalli.app.model.PetType;
 
-public interface PetTypeRepository extends CrudRepository <PetType,Integer> , PagingAndSortingRepository<PetType,Integer> {
+public interface PetTypeRepository extends CrudRepository <PetType,Integer> {
 	Set<PetType> findByid(Integer id);
 	Set<PetType> findByPetType(String petType);
 	Set<PetType> findByDescription(String description);
 	
-
-	Page<PetType> findAllByActiveTrue(Pageable pageable);
-	Page<PetType> findAllByActiveFalse(Pageable pageable);
 }

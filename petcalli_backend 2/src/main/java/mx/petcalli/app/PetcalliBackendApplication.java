@@ -1,4 +1,4 @@
-package mx.petcalli.petcalli_backend;
+package mx.petcalli.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

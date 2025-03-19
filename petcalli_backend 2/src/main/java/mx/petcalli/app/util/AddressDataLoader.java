@@ -11,11 +11,11 @@ public class AddressDataLoader implements CommandLineRunner {
 	AddressRepository addressRepository;
 	@Override
 	public void run(String... args) throws Exception {
-		addressRepository.save(new Address(1, 1, "Calle del Sol 123", "Ciudad de México", "CDMX", 06000, "México"));
-		addressRepository.save(new Address(2, 2, "Avenida Revolución 456", "Guadalajara", "Jalisco", 44130, "México"));
-		addressRepository.save(new Address(3, 3, "Calle Río Verde", "Monterrey", "Nuevo León", 64000, "México"));
-		addressRepository.save(new Address(4, 4, "Boulevard de los Héroes 101", "Puebla", "Puebla", 72000, "México"));
-		addressRepository.save(new Address(5, 5, "Callejón de las Flores 55", "Cancún", "Quintana Roo", 77500, "México"));
+		addressRepository.save(new Address("Calle del Sol 123", "Ciudad de México", "CDMX", 06000, "México"));
+		addressRepository.save(new Address("Avenida Revolución 456", "Guadalajara", "Jalisco", 44130, "México"));
+		addressRepository.save(new Address("Calle Río Verde", "Monterrey", "Nuevo León", 64000, "México"));
+		addressRepository.save(new Address("Boulevard de los Héroes 101", "Puebla", "Puebla", 72000, "México"));
+		addressRepository.save(new Address("Callejón de las Flores 55", "Cancún", "Quintana Roo", 77500, "México"));
 	}
 }
 
