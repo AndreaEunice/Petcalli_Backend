@@ -1,28 +1,28 @@
 package mx.petcalli.app.controller;
 
-import java.util.Set;
-
 import org.springframework.http.ResponseEntity;
 
 import mx.petcalli.app.model.Product;
 
 public interface ProductController {
 
-	Product getProductById(int id);
-	
-	
-	ResponseEntity<Product> getProductByIdUsingResponseEntity(int id);
-	
-	ResponseEntity< Set<Product>> getAllProducts();
-	
-	ResponseEntity<Product> createProduct(Product newProduct);
-	
-	ResponseEntity<Product> updateProduct(Product product, int id);
-	
-	ResponseEntity<Void> deleteProduct(int id); 
-	
-	
-	
-	
-	
+ ResponseEntity<Product> getProductById(int id);
+ 
+ // ResponseEntity<Iterable<Product>> getAllProductsByPetType(int petType);
+ 
+ // ResponseEntity<Iterable<Product>> getAllProductsByProductCategory(int productCategory);
+ 
+ ResponseEntity<Iterable<Product>> getAllProducts();
+ 
+ ResponseEntity<Product> createProduct(Product product);
+ 
+ ResponseEntity<Product> updateProduct(Product product, int id);
+ 
+ ResponseEntity<Void> deleteProduct(int id);
+
+ 
+ 
+ 
+ 
+ 
 }

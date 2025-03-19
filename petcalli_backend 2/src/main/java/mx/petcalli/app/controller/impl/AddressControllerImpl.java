@@ -21,47 +21,47 @@ import mx.petcalli.app.service.AddressService;
 @RestController 
 public class AddressControllerImpl implements AddressController{
 
-	private final AddressService addressService; 
-	
-	//Constructor 
-	public AddressControllerImpl(AddressService addressService) {
-		this.addressService = addressService; 
-	}
-		
-	@Override
-	@GetMapping("{id}")
-	public ResponseEntity<Address> getAddressById(@PathVariable("id") Integer id) {
-		return ResponseEntity.ok(addressService.getAddressById(id));
-	}	
+ private final AddressService addressService; 
+ 
+ //Constructor 
+ public AddressControllerImpl(AddressService addressService) {
+  this.addressService = addressService; 
+ }
+  
+ @Override
+ @GetMapping("{id}")
+ public ResponseEntity<Address> getAddressById(@PathVariable("id") Integer id) {
+  return ResponseEntity.ok(addressService.getAddressById(id));
+ } 
 
-	@Override
-	@GetMapping
-	public ResponseEntity<Iterable<Address>> getAllAddresses() {
-		return ResponseEntity.ok(addressService.getAllAddress());
-	}
+ @Override
+ @GetMapping
+ public ResponseEntity<Iterable<Address>> getAllAddresses() {
+  return ResponseEntity.ok(addressService.getAllAddress());
+ }
 
-	@Override
-	@PostMapping
-	public ResponseEntity<Address> createAddress(@RequestBody Address newAddress) {
-		return ResponseEntity.status(201).body(addressService.createAddress(newAddress));
-	}
-	
+ @Override
+ @PostMapping
+ public ResponseEntity<Address> createAddress(@RequestBody Address newAddress) {
+  return ResponseEntity.status(201).body(addressService.createAddress(newAddress));
+ }
+ 
 
-	@Override
-	@PutMapping("{id}")
-	public ResponseEntity<Address> updateAddress(Address address, Integer id) {
-		return ResponseEntity.ok(addressService.updateAddress(address, id));
-	}
+ @Override
+ @PutMapping("{id}")
+ public ResponseEntity<Address> updateAddress(Address address, Integer id) {
+  return ResponseEntity.ok(addressService.updateAddress(address, id));
+ }
 
-	@Override
-	@DeleteMapping("{id}")
-	public ResponseEntity<Void> deleteAddress(@PathVariable("id") Integer id) {
-		addressService.deleteAddress(id);
-		return ResponseEntity.noContent().build();
-	}
+ @Override
+ @DeleteMapping("{id}")
+ public ResponseEntity<Void> deleteAddress(@PathVariable("id") Integer id) {
+  addressService.deleteAddress(id);
+  return ResponseEntity.noContent().build();
+ }
 
-	
+ 
 
-	
+ 
 
 }

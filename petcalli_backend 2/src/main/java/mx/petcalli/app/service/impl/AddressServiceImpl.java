@@ -1,125 +1,99 @@
 package mx.petcalli.app.service.impl;
 
 import java.util.Optional;
+import org.springframework.stereotype.Service;
 import mx.petcalli.app.model.Address;
 import mx.petcalli.app.repository.AddressRepository;
 import mx.petcalli.app.service.AddressService;
 
-public class AddressServiceImpl implements AddressService{
-	
-	// Estamos conectando la base de datos con Service, creo. 
-	private final AddressRepository addressRepository; 
+@Service
+public class AddressServiceImpl implements AddressService {
 
-	// Crear el constructor de AddressRepositoryImpl	
-	public AddressServiceImpl(AddressRepository addressRepository) {
-		this.addressRepository = addressRepository; 
-	}
-	
-	
-	@Override
-	public Address createAddress(Address address) {
-		if (address == null || address.getStreet() == null || address.getStreet().trim().isEmpty()) {
-	        throw new IllegalArgumentException("Address or required fields cannot be null or empty");
-	    }
-	    Address savedAddress = addressRepository.save(address);
-	    return savedAddress;
-	}
+    private final AddressRepository addressRepository;
 
-	@Override
-	public Address getAddressById(Integer id) {
-		 Optional<Address> optionalAddress = addressRepository.findById(id);
-		    if (optionalAddress.isEmpty()) {
-		        throw new IllegalStateException("Address not found with ID: " + id);
-		    }
-		    return optionalAddress.get();
-	}
+    public AddressServiceImpl(AddressRepository addressRepository) {
+        this.addressRepository = addressRepository;
+    }
 
-	@Override
-	public Address getAddressByStreet(String street) {
-		if (street == null || street.trim().isEmpty()) {
-	        throw new IllegalArgumentException("Street cannot be null or empty");
-	    }
+    @Override
+    public Address createAddress(Address address) {
+        address.setId(null); // Garantizamos que sea un nuevo registro
+        return addressRepository.save(address);
+    }
 
-	    Optional<Address> optionalAddress = addressRepository.findByStreet(street);
-	    if (optionalAddress.isEmpty()) {
-	        throw new IllegalArgumentException("Address not found with street: " + street);
-	    }
-	    return optionalAddress.get();
-	}
+    @Override
+    public Address getAddressById(Integer id) {
+        Optional<Address> existingAddress = addressRepository.findById(id);
+        return existingAddress.orElseThrow(() -> 
+            new IllegalStateException("Address does not exist with id " + id));
+    }
+
+    @Override
+    public Address getAddressByStreet(String street) {
+        Iterable<Address> addresses = addressRepository.findByStreet(street);
+        for (Address address : addresses) {
+            return address;
+        }
+        throw new IllegalStateException("Address no existe con la calle " + street);
+    }
 
 
-	@Override
-	public Address getAddressByCity(String city) {
-		if (city == null || city.trim().isEmpty()) {
-	        throw new IllegalArgumentException("City cannot be null or empty");
-	    }
+    @Override
+    public Address getAddressByCity(String city) {
+        Iterable<Address> addresses = addressRepository.findByCity(city);
+        for (Address address : addresses) {
+            return address; // Retorna el primer resultado
+        }
+        throw new IllegalStateException("Address no existe con la ciudad " + city);
+    }
 
-	    Optional<Address> optionalAddress = addressRepository.findByCity(city);
-	    if (optionalAddress.isEmpty()) {
-	        throw new IllegalArgumentException("Address not found with city: " + city);
-	    }
-	    return optionalAddress.get();
-	}
+    @Override
+    public Address getAddressByState(String state) {
+        Iterable<Address> addresses = addressRepository.findByState(state);
+        for (Address address : addresses) {
+            return address; // Retorna el primer resultado
+        }
+        throw new IllegalStateException("Address no existe con el estado " + state);
+    }
 
-	@Override
-	public Address getAddressByState(String state) {
-		if (state == null || state.trim().isEmpty()) {
-	        throw new IllegalArgumentException("State cannot be null or empty");
-	    }
+    @Override
+    public Address getAddressByZip(Integer zip) {
+        Iterable<Address> addresses = addressRepository.findByZip(zip);
+        for (Address address : addresses) {
+            return address; // Retorna el primer resultado
+        }
+        throw new IllegalStateException("Address no existe con el código postal " + zip);
+    }
 
-	    Optional<Address> optionalAddress = addressRepository.findByState(state);
-	    if (optionalAddress.isEmpty()) {
-	        throw new IllegalArgumentException("Address not found with state: " + state);
-	    }
-	    return optionalAddress.get();
-	}
+    @Override
+    public Address getAddressByCountry(String country) {
+        Iterable<Address> addresses = addressRepository.findByCountry(country);
+        for (Address address : addresses) {
+            return address; // Retorna el primer resultado
+        }
+        throw new IllegalStateException("Address no existe con el país " + country);
+    }
 
-	@Override
-	public Address getAddressByZip(Integer zip) {
-		if (zip == null || zip <= 0) {
-		    throw new IllegalArgumentException("Zip code must be a positive number");
-		}
 
-	    Optional<Address> optionalAddress = addressRepository.findByZip(zip);
-	    if (optionalAddress.isEmpty()) {
-	        throw new IllegalArgumentException("Address not found with zip: " + zip);
-	    }
-	    return optionalAddress.get();
-	}
+    @Override
+    public Iterable<Address> getAllAddress() {
+        return addressRepository.findAll();
+    }
 
-	@Override
-	public Address getAddressByCountry(String country) {
-		if (country == null || country.trim().isEmpty()) {
-	        throw new IllegalArgumentException("Country cannot be null or empty");
-	    }
+    @Override
+    public Address updateAddress(Address address, Integer id) {
+        Address existingAddress = getAddressById(id);
+        existingAddress.setStreet(address.getStreet());
+        existingAddress.setCity(address.getCity());
+        existingAddress.setState(address.getState());
+        existingAddress.setZip(address.getZip());
+        existingAddress.setCountry(address.getCountry());
+        return addressRepository.save(existingAddress);
+    }
 
-	    Optional<Address> optionalAddress = addressRepository.findByCountry(country);
-	    if (optionalAddress.isEmpty()) {
-	        throw new IllegalArgumentException("Address not found with country: " + country);
-	    }
-	    return optionalAddress.get();
-	}
-
-	@Override
-	public Address updateAddress(Address address, Integer id) {
-		Optional<Address> optionalAddress = addressRepository.findById(id);
-	    if (optionalAddress.isEmpty()) {
-	        throw new IllegalStateException("Address not found with ID: " + id);
-	    }
-	    Address existingAddress = optionalAddress.get();
-	    existingAddress.setStreet(address.getStreet());
-	    existingAddress.setCity(address.getCity());
-	    // Actualiza otros campos según sea necesario
-	    return addressRepository.save(existingAddress);
-	}
-
-	@Override
-	public void deleteAddress(Integer id) {
-		if (!addressRepository.existsById(id)) {
-	        throw new IllegalStateException("Address not found with ID: " + id);
-	    }
-	    addressRepository.deleteById(id);
-		
-	}
-
+    @Override
+    public void deleteAddress(Integer id) {
+        Address existingAddress = getAddressById(id);
+        addressRepository.delete(existingAddress);
+    }
 }
