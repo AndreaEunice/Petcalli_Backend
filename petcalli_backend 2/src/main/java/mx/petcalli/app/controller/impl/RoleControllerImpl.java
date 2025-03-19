@@ -1,6 +1,5 @@
 package mx.petcalli.app.controller.impl;
 
-import java.util.Set;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import mx.petcalli.app.controller.RoleController;
 import mx.petcalli.app.model.Role;
-import mx.petcalli.app.service.RoleService;
-
+import mx.petcalli.app.service.*;
+/*
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/v1/roles")
 @RestController
@@ -57,4 +56,4 @@ public class RoleControllerImpl implements RoleController {
 		roleService.deleteRole(id);
 		return ResponseEntity.noContent().build();
 	}
-}
+}*/
