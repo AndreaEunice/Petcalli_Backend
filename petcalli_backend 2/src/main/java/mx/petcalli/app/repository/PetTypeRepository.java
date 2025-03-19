@@ -1,4 +1,4 @@
-/*package mx.petcalli.app.repository;
+package mx.petcalli.app.repository;
 
 import java.util.Set;
 
@@ -15,4 +15,3 @@ public interface PetTypeRepository extends CrudRepository <PetType,Integer> {
 	Set<PetType> findByDescription(String description);
 	
 }
-*/

@@ -1,4 +1,4 @@
-/*package mx.petcalli.app.model;
+package mx.petcalli.app.model;
 
 import jakarta.persistence.*;
 
@@ -11,9 +11,7 @@ public class Role  {
 	private Integer id; 
 
 
-    @Version
-    private int version;
-	
+
 	@Column(name = "role", length = 45, nullable = false)
 	private String role;
 
@@ -26,8 +24,8 @@ public class Role  {
       }
 
 
-	public Role(Integer id, String role, String description) {
-		this.id = id;
+	public Role( String role, String description) {
+		//this.id = id;
 		this.role = role;
 		this.description = description;
 	}
@@ -80,4 +78,4 @@ public class Role  {
 	
       
 }
-*/
+
