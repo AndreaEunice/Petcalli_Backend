@@ -1,4 +1,4 @@
-package mx.petcalli.app.repository;
+/*package mx.petcalli.app.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import mx.petcalli.app.model.Address;
@@ -13,3 +13,4 @@ public interface AddressRepository extends CrudRepository<Address, Integer> {
 	Iterable<Address> findByCountry(String country);
 	
 }
+*/

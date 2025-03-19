@@ -1,4 +1,4 @@
-package mx.petcalli.app.util;
+/*package mx.petcalli.app.util;
 import mx.petcalli.app.model.Product;
 import mx.petcalli.app.repository.ProductRepository;
 import org.slf4j.Logger;
@@ -56,5 +56,5 @@ private static final Logger log = LoggerFactory.getLogger(ProductDataLoader.clas
 
 	}
 	}
-	
+	*/
 	
