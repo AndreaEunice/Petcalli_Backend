@@ -1,4 +1,4 @@
-package mx.petcalli.app.util;
+/*package mx.petcalli.app.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -21,3 +21,4 @@ public class RolDataLoader implements CommandLineRunner{
 		rP.save(new Role(3,"Invitado","Invitado puede comprar sin la necesidad de tener una sesion activa"));
 	}
 }
+*/

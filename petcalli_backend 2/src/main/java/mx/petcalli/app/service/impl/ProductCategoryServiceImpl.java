@@ -56,7 +56,8 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 
 	@Override
 	public void deleteProductCategory(Integer id) {
-		// TODO Auto-generated method stub
+		ProductCategory existingProductCategory = getProductCategoryById( id );
+		
 		
 	}
 
