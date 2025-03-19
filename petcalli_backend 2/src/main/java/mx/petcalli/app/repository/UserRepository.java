@@ -1,4 +1,4 @@
-package mx.petcalli.app.repository;
+/*package mx.petcalli.app.repository;
 
 import java.util.Set;
 
@@ -19,3 +19,4 @@ public interface UserRepository extends CrudRepository<User, Integer>, PagingAnd
 	
 
 }
+*/

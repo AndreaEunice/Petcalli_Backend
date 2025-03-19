@@ -24,4 +24,4 @@ public class PetTypeDataLoader implements CommandLineRunner {
 		}
 }
 
-	
+

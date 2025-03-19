@@ -1,4 +1,4 @@
-package mx.petcalli.app.service.impl;
+/*package mx.petcalli.app.service.impl;
 
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -48,3 +48,4 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 	}
 
 }
+*/

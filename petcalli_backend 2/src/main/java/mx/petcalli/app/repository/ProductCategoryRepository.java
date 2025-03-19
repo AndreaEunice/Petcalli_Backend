@@ -1,4 +1,4 @@
-package mx.petcalli.app.repository;
+/*package mx.petcalli.app.repository;
 
 import java.util.Set;
 
@@ -16,3 +16,4 @@ public interface ProductCategoryRepository extends CrudRepository<ProductCategor
 	// Page<Order> findAllByActiveTrue(Pageable pageable);
 	// Page<Order> findAllByActiveFalse(Pageable pageable);
 }
+*/

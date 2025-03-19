@@ -1,4 +1,4 @@
-package mx.petcalli.app.model;
+/*package mx.petcalli.app.model;
 
 import java.time.LocalDate;
 
@@ -107,8 +107,5 @@ public class Order  {
 		builder.append("]");
 		return builder.toString();
 	}
-	
-	
-	
-
 }
+*/
