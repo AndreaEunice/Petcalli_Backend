@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "Addresses") 
 public class Address {
+	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer id; 
@@ -31,6 +32,7 @@ Address (){
 	
 }
 
+// Probablemente se retire, ya que tenemos el constructor vacio arriba
 public Address(String street, String city, String state, Integer zip, String country) {
 	this.street = street;
 	this.city = city;
