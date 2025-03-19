@@ -55,7 +55,4 @@ public class ProductCategoryControllerImpl implements ProductCategoryController 
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
-	
 }

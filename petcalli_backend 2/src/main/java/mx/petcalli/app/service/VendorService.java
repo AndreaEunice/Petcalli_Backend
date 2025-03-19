@@ -1,4 +1,4 @@
-package main.java.mx.petcalli.app.service;
+/*package main.java.mx.petcalli.app.service;
 
 import java.util.Set;
 
@@ -20,3 +20,4 @@ public interface VendorService {
 	Vendor getVendorByTermsConditionsUrl(String termsConditionsUrl);
 	
 }
+*/

@@ -1,4 +1,4 @@
-package main.java.mx.petcalli.app.controller;
+/*package main.java.mx.petcalli.app.controller;
 
 import main.java.mx.petcalli.app.service.VendorService;
 
@@ -23,4 +23,4 @@ Page<Vendor> getAllVendors(
 		)
 	
 }
-
+*/

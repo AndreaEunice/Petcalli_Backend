@@ -1,4 +1,4 @@
-/*package mx.petcalli.app.service;
+package mx.petcalli.app.service;
 
 import mx.petcalli.app.model.ProductCategory;
 
@@ -10,4 +10,3 @@ public interface ProductCategoryService {
 	void deleteProductCategory(Integer id);
 
 }
-*/
