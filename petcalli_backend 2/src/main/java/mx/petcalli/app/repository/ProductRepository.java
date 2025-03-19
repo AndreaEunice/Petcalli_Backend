@@ -1,4 +1,4 @@
-package mx.petcalli.app.repository;
+/*package mx.petcalli.app.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -17,4 +17,4 @@ public interface ProductRepository extends CrudRepository<Product, Integer>, Pag
 	Iterable<Product> findBysize(String size);
 	
 }
-
+*/

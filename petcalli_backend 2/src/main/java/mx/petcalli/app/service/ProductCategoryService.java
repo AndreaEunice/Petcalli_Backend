@@ -1,4 +1,4 @@
-package mx.petcalli.app.service;
+/*package mx.petcalli.app.service;
 
 import org.springframework.data.domain.Page;
 
@@ -13,3 +13,4 @@ public interface ProductCategoryService {
 	void deleteProductCategory(Integer id);
 
 }
+*/

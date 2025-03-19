@@ -1,4 +1,4 @@
-package mx.petcalli.app.repository;
+/*package mx.petcalli.app.repository;
 
 
 import java.util.Set;
@@ -25,3 +25,4 @@ public interface VendorRepository extends CrudRepository<Vendor, Integer>, Pagin
 	// Page<Product> findAllByActiveFalse(Pageable pageable);
 }
 
+*/
