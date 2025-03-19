@@ -1,4 +1,4 @@
-package mx.petcalli.app.service;
+/*package mx.petcalli.app.service;
 
 import mx.petcalli.app.model.User;
 
@@ -16,3 +16,4 @@ public interface UserService {
 	
 	void deletUser(Integer id);
 }
+*/

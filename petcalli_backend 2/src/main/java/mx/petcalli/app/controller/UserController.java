@@ -1,4 +1,4 @@
-package mx.petcalli.app.controller;
+/*package mx.petcalli.app.controller;
 
 
 @CrossOrigin(origins = "*")
@@ -22,3 +22,4 @@ Page<User> getAllUsers(
 		)
 	
 }
+*/
