@@ -11,32 +11,32 @@ import mx.petcalli.app.service.CouponService;
 @Service
 public class CouponServiceImpl implements CouponService {
 	
-	private CouponRepository couponRepository;
-
+	private final CouponRepository couponRepository;
+	
 	public CouponServiceImpl(CouponRepository couponRepository) {
 		this.couponRepository = couponRepository;
 	}
 
 	@Override
-	public Coupon createCoupn(Coupon coupon) {
-		// TODO Auto-generated method stub
-		return null;
+	public Coupon createCoupon(Coupon coupon) {
+		// Guarda un nuevo cupon en la base de datos
+		return couponRepository.save(coupon);
 	}
 
 	@Override
 	public Coupon getCouponById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		// Busca un cupon por su ID
+		return couponRepository.findById(id).orElse(null);
 	}
 
 	@Override
 	public Coupon getCouponByStartValidDate(LocalDate startValidDate) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return (null);
 	}
 
 	@Override
-	public Coupon getCouponByEndtValidDate(LocalDate endValidDate) {
+	public Coupon getCouponByEndValidDate(LocalDate endValidDate) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -82,6 +82,5 @@ public class CouponServiceImpl implements CouponService {
 		// TODO Auto-generated method stub
 		
 	}
-
-
 }
+	

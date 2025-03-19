@@ -15,10 +15,7 @@ import mx.petcalli.app.service.CouponService;
 public class CouponControllerImpl implements CouponController {
 	
 
-	private CouponService couponService;
-
 	public CouponControllerImpl(CouponService couponService) {
-		this.couponService = couponService;
 	}
 
 	@Override
