@@ -1,22 +1,23 @@
-/*package mx.petcalli.app.service;
+package mx.petcalli.app.service;
 
-import java.time.LocalDate;
 
-import org.springframework.data.domain.Page;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import mx.petcalli.app.model.Order;
 
 public interface OrderService {
-    Order createOrder (Order order);
-    Order getOrderbyId (Long id);
-    Order getOrderbyAmountProducts (Integer amountProducts);
-    Order getOrderbyDateTimeOrder(LocalDate dateTimeOrder);
-    Order getOrderbyTotalPrice (Double totalPrice);
-    Order getOrderbyPaymentMethod (String paymentMethod);
 
-    Page<Order> getAllOrders(boolean isActive, int pageNumber, int pageSize);
-    Order updateOrder(Order order, Long id);
-    void deleteOrder(Long id);
+    Order createOrder (Order order);
+    Order getOrderById (Integer id);
+    Order getOrderByAmountProducts (Integer amountProducts);
+    Order getOrderByDateTimeOrder(LocalDateTime dateTimeOrder);
+    Order getOrderByTotalPrice (BigDecimal totalPrice);
+    Order getOrderByPaymentMethod (String paymentMethod);
+    Iterable<Order> getAllOrders( );
+
+    //Page<Order> getAllOrders();
+    Order updateOrder(Order order, Integer id);
+    void deleteOrder(Integer id);
 
 }
-*/

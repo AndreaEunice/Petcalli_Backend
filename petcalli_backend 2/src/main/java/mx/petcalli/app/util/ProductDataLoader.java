@@ -35,7 +35,7 @@ private static final Logger log = LoggerFactory.getLogger(ProductDataLoader.clas
    "Nutricion completa y balanceada para gatos en gestion y lactancia, así como para sus cachorros (de 1 a 4 meses de edad) durante el destete.",
    "NA", "2.6 kg"));
   
-  productRepository.save(new Product("Cahorro Comida Maine", "Royal Canin", 
+  productRepository.save(new Product("Cachorro Comida Maine", "Royal Canin", 
     "https://cdn.royalcanin-weshare-online.io/ylaNe28BBKJuub5qxmK_/v62/2019-c-mainecoon-kitten-spt-fbn-packshot-b2?w=640&fm=jpg&auto=format,compress", 650.00,
      "Nutricion completa y balanceada para gatos en edad temprana (de 1 a 4 meses de edad) durante el destete.",
      "NA", "1.3 kg"));
