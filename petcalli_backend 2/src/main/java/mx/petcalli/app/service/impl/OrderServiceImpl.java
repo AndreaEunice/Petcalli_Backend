@@ -1,8 +1,8 @@
-/*package mx.petcalli.app.service.impl;
+package mx.petcalli.app.service.impl;
 
-import java.time.LocalDate;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import mx.petcalli.app.model.Order;
@@ -14,62 +14,66 @@ public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
 
-    OrderServiceImpl(OrderRepository orderRepository) {
+    public OrderServiceImpl(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
     }
 
     @Override
     public Order createOrder(Order order) {
+        order.setId(null);
+        return orderRepository.save(order);
+    }
+
+
+    @Override
+    public Order getOrderById(Integer id) {
+        return orderRepository.findById(id)
+        .orElseThrow( ()-> new IllegalStateException("Order does not exist with id: "+ id) );
+    }
+
+    @Override
+    public Order getOrderByAmountProducts(Integer amountProducts) {
+        return orderRepository.findByAmountProducts(amountProducts)
+        .orElseThrow(() -> new IllegalStateException("Order does not exist with amountProducts: " + amountProducts));
+    }
+
+    @Override
+    public Order getOrderByDateTimeOrder(LocalDateTime dateTimeOrder) {
+        return orderRepository.findByDateTimeOrder(dateTimeOrder)
+                .orElseThrow(() -> new IllegalStateException("Order does not exist with dateTimeOrder: " + dateTimeOrder));
+    }
+
+    @Override
+    public Order getOrderByTotalPrice(BigDecimal totalPrice) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public Order getOrderbyId(Long id) {
+    public Order getOrderByPaymentMethod(String paymentMethod) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public Order getOrderbyAmountProducts(Integer amountProducts) {
-        // TODO Auto-generated method stub
-        return null;
+	public Iterable<Order> getAllOrders() {
+		return orderRepository.findAll();
+	}
+
+    @Override
+    public Order updateOrder(Order order, Integer id) {
+        Order existingOrder = getOrderById(id);
+        existingOrder.setAmountProducts(order.getAmountProducts());
+        existingOrder.setTotalPrice(order.getTotalPrice());
+        existingOrder.setPaymentMethod(order.getPaymentMethod());
+        existingOrder.setDateTimeOrder(order.getDateTimeOrder());
+        return orderRepository.save(existingOrder);
     }
 
     @Override
-    public Order getOrderbyDateTimeOrder(LocalDate dateTimeOrder) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Order getOrderbyTotalPrice(Double totalPrice) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Order getOrderbyPaymentMethod(String paymentMethod) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Page<Order> getAllOrders(boolean isActive, int pageNumber, int pageSize) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Order updateOrder(Order order, Long id) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public void deleteOrder(Long id) {
-        // TODO Auto-generated method stub
-
+    public void deleteOrder(Integer id) {
+        Order existingOrder = getOrderById(id);
+        orderRepository.delete(existingOrder);
     }
 }
-*/
+

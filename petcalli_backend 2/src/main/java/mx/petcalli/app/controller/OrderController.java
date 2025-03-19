@@ -1,6 +1,4 @@
-/*package mx.petcalli.app.controller;
-
-import java.util.Set;
+package mx.petcalli.app.controller;
 
 import org.springframework.http.ResponseEntity;
 
@@ -8,16 +6,15 @@ import mx.petcalli.app.model.Order;
 
 public interface OrderController {
 
-    Order getOrderById (Long id);
-    ResponseEntity<Order> getOrderByIdUsyngResponseEntity(Long id);
+    
+    ResponseEntity<Order> getOrderById(Integer id);
 
-    ResponseEntity<Set<Order> > getAllOrders ();
+    ResponseEntity<Iterable<Order> > getAllOrders ();
 
     ResponseEntity<Order> createOrder (Order newOrder);
 
-    ResponseEntity<Order> updateOrder (Order order, Long id);
+    ResponseEntity<Order> updateOrder (Order order, Integer id);
 
-    ResponseEntity<Void> deleteOrder (Long id);
+    ResponseEntity<Void> deleteOrder (Integer id);
 
 }
-*/

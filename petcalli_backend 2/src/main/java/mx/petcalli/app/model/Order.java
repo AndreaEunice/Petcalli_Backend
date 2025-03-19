@@ -1,8 +1,18 @@
-/*package mx.petcalli.app.model;
+package mx.petcalli.app.model;
 
-import java.time.LocalDate;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "orders") 
@@ -12,100 +22,98 @@ public class Order  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer id; 
 
-	@Column(name = "fkUsersId", length = 100, nullable = false)
-	private Integer fkUsersId; // fk
+	@ManyToOne
+	@JoinColumn(name = "fk_users_id")
+	@JsonIgnoreProperties({"name","lastName", "email", "telephone","password"})
+	private User user;
 
 	@Column(name = "amount_products", nullable = false)
 	private Integer amountProducts;
 
-	@Column(name = "date_time_order", nullable = false, unique = true)
-	private LocalDate dateTimeOrder;
+	@Column(name = "date_time_order", nullable = false)
+	private LocalDateTime dateTimeOrder;
 
 	@Column(name = "total_price", nullable = false)
-	private Double totalPrice;
+	private BigDecimal totalPrice;
 
 	@Column(name = "payment_method", length = 50, nullable = false)
 	private String paymentMethod;
 
-	Order (){
+	public Order (){
 	
 	}
 
-	public Order(Integer id, Integer fkUsersId, Integer amountProducts, LocalDate dateTimeOrder, Double totalPrice,
-			String paymentMethod) {
-		this.id = id;
-		this.fkUsersId = fkUsersId;
-		this.amountProducts = amountProducts;
-		this.dateTimeOrder = dateTimeOrder;
-		this.totalPrice = totalPrice;
-		this.paymentMethod = paymentMethod;
-	}
+    public Order(Integer amountProducts, LocalDateTime dateTimeOrder,  String paymentMethod, BigDecimal totalPrice) {
+        //this.user = user;
+        this.amountProducts = amountProducts;
+        this.dateTimeOrder = dateTimeOrder;
+        this.paymentMethod = paymentMethod;
+        this.totalPrice = totalPrice;
+    }
 
-	public Integer getId() {
-		return id;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
+/* 
+    public User getUser() {
+        return user;
+    }
 
-	public Integer getFkUsersId() {
-		return fkUsersId;
-	}
+    public void setUser(User user) {
+        this.user = user;
+    } */
 
-	public void setFkUsersId(Integer fkUsersId) {
-		this.fkUsersId = fkUsersId;
-	}
+    public Integer getAmountProducts() {
+        return amountProducts;
+    }
 
-	public Integer getAmountProducts() {
-		return amountProducts;
-	}
+    public void setAmountProducts(Integer amountProducts) {
+        this.amountProducts = amountProducts;
+    }
 
-	public void setAmountProducts(Integer amountProducts) {
-		this.amountProducts = amountProducts;
-	}
+    public LocalDateTime getDateTimeOrder() {
+        return dateTimeOrder;
+    }
 
-	public LocalDate getDateTimeOrder() {
-		return dateTimeOrder;
-	}
+    public void setDateTimeOrder(LocalDateTime dateTimeOrder) {
+        this.dateTimeOrder = dateTimeOrder;
+    }
 
-	public void setDateTimeOrder(LocalDate dateTimeOrder) {
-		this.dateTimeOrder = dateTimeOrder;
-	}
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
+    }
 
-	public Double getTotalPrice() {
-		return totalPrice;
-	}
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
+    }
 
-	public void setTotalPrice(Double totalPrice) {
-		this.totalPrice = totalPrice;
-	}
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
 
-	public String getPaymentMethod() {
-		return paymentMethod;
-	}
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
 
-	public void setPaymentMethod(String paymentMethod) {
-		this.paymentMethod = paymentMethod;
-	}
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Order [id=");
-		builder.append(id);
-		builder.append(", fkUsersId=");
-		builder.append(fkUsersId);
-		builder.append(", amountProducts=");
-		builder.append(amountProducts);
-		builder.append(", dateTimeOrder=");
-		builder.append(dateTimeOrder);
-		builder.append(", totalPrice=");
-		builder.append(totalPrice);
-		builder.append(", paymentMethod=");
-		builder.append(paymentMethod);
-		builder.append("]");
-		return builder.toString();
-	}
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                //", user=" + user +
+                ", amountProducts=" + amountProducts +
+                ", dateTimeOrder=" + dateTimeOrder +
+                ", totalPrice=" + totalPrice +
+                ", paymentMethod='" + paymentMethod + '\'' +
+                '}';
+    }
+	
+	
+	
+
 }
-*/
+
