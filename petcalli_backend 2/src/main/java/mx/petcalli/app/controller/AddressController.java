@@ -6,7 +6,7 @@ import mx.petcalli.app.model.Address;
 public interface AddressController {
 	
 	// Nos permite controlar la respuesta 200, 201, 404, etc es como el optional
-	ResponseEntity<Address> getAddressByIdUsynResponEntity(Integer id);
+	ResponseEntity<Address> getAddressById(Integer id);
 	
 	//Obtener todas las direcciones 
 	ResponseEntity< Iterable <Address> > getAllAddresses();
