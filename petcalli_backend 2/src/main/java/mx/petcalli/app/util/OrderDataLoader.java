@@ -1,5 +1,7 @@
 package mx.petcalli.app.util;
 
+import java.time.LocalDateTime;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +26,12 @@ public class OrderDataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        orderRepository.save(new Order(null, null, null, null, null));
-        orderRepository.save(new Order(null, null, null, null, null));
-        orderRepository.save(new Order(null, null, null, null, null));
-        orderRepository.save(new Order(null, null, null, null, null));
-        orderRepository.save(new Order(null, null, null, null, null));
-        orderRepository.save(new Order(null, null, null, null, null));
+        orderRepository.save(new Order(null, 5, LocalDateTime.now(), "tarjeta_de_credito", null));
+        orderRepository.save(new Order(null, 2, LocalDateTime.now(), "tarjeta_de_debito", null));
+        orderRepository.save(new Order(null, 1, LocalDateTime.now(), "tarjeta_de_credito", null));
+        orderRepository.save(new Order(null, 1, LocalDateTime.now(), "tarjeta_de_debito", null));
+        orderRepository.save(new Order(null, 1, LocalDateTime.now(), "tarjeta_de_credito", null));
+        orderRepository.save(new Order(null, 3, LocalDateTime.now(), "tarjeta_de_debito", null));
 
         
        
