@@ -1,6 +1,7 @@
 package mx.petcalli.app.model;
 
-import java.time.LocalDate;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -23,17 +24,17 @@ public class Order  {
 
 	@ManyToOne
 	@JoinColumn(name = "fk_users_id")
-	@JsonIgnoreProperties({"firstName","lastName", "birthdate", "active","roles"})
+	@JsonIgnoreProperties({"firstName","lastName", "birthdate", "active","role"})
 	private User user;
 
 	@Column(name = "amount_products", nullable = false)
 	private Integer amountProducts;
 
-	@Column(name = "date_time_order", nullable = false, unique = true)
-	private LocalDate dateTimeOrder;
+	@Column(name = "date_time_order", nullable = false)
+	private LocalDateTime dateTimeOrder;
 
 	@Column(name = "total_price", nullable = false)
-	private Double totalPrice;
+	private BigDecimal totalPrice;
 
 	@Column(name = "payment_method", length = 50, nullable = false)
 	private String paymentMethod;
@@ -42,13 +43,12 @@ public class Order  {
 	
 	}
 
-    public Order(Integer amountProducts, LocalDate dateTimeOrder, Integer id, String paymentMethod, Double totalPrice, User user) {
+    public Order(User user, Integer amountProducts, LocalDateTime dateTimeOrder,  String paymentMethod, BigDecimal totalPrice) {
+        this.user = user;
         this.amountProducts = amountProducts;
         this.dateTimeOrder = dateTimeOrder;
-        this.id = id;
         this.paymentMethod = paymentMethod;
         this.totalPrice = totalPrice;
-        this.user = user;
     }
 
     public Integer getId() {
@@ -75,19 +75,19 @@ public class Order  {
         this.amountProducts = amountProducts;
     }
 
-    public LocalDate getDateTimeOrder() {
+    public LocalDateTime getDateTimeOrder() {
         return dateTimeOrder;
     }
 
-    public void setDateTimeOrder(LocalDate dateTimeOrder) {
+    public void setDateTimeOrder(LocalDateTime dateTimeOrder) {
         this.dateTimeOrder = dateTimeOrder;
     }
 
-    public Double getTotalPrice() {
+    public BigDecimal getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(Double totalPrice) {
+    public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
 

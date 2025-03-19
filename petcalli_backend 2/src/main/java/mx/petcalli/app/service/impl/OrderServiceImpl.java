@@ -1,6 +1,6 @@
 package mx.petcalli.app.service.impl;
 
-import java.time.LocalDate;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Service;
@@ -25,31 +25,32 @@ public class OrderServiceImpl implements OrderService {
     }
 
 
-    public Order getOrderbyId(Long id) {
+    @Override
+    public Order getOrderById(Integer id) {
         return orderRepository.findById(id)
         .orElseThrow( ()-> new IllegalStateException("Order does not exist with id: "+ id) );
     }
 
     @Override
-    public Order getOrderbyAmountProducts(Integer amountProducts) {
+    public Order getOrderByAmountProducts(Integer amountProducts) {
         return orderRepository.findByAmountProducts(amountProducts)
         .orElseThrow(() -> new IllegalStateException("Order does not exist with amountProducts: " + amountProducts));
     }
 
-    
-    public Order getOrderbyDateTimeOrder(LocalDateTime dateTimeOrder) {
+    @Override
+    public Order getOrderByDateTimeOrder(LocalDateTime dateTimeOrder) {
         return orderRepository.findByDateTimeOrder(dateTimeOrder)
                 .orElseThrow(() -> new IllegalStateException("Order does not exist with dateTimeOrder: " + dateTimeOrder));
     }
 
     @Override
-    public Order getOrderbyTotalPrice(Double totalPrice) {
+    public Order getOrderByTotalPrice(BigDecimal totalPrice) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public Order getOrderbyPaymentMethod(String paymentMethod) {
+    public Order getOrderByPaymentMethod(String paymentMethod) {
         // TODO Auto-generated method stub
         return null;
     }
@@ -60,8 +61,8 @@ public class OrderServiceImpl implements OrderService {
 	}
 
     @Override
-    public Order updateOrder(Order order, Long id) {
-        Order existingOrder = getOrderbyId(id);
+    public Order updateOrder(Order order, Integer id) {
+        Order existingOrder = getOrderById(id);
         existingOrder.setAmountProducts(order.getAmountProducts());
         existingOrder.setTotalPrice(order.getTotalPrice());
         existingOrder.setPaymentMethod(order.getPaymentMethod());
@@ -70,19 +71,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void deleteOrder(Long id) {
-        Order existingOrder = getOrderbyId(id);
+    public void deleteOrder(Integer id) {
+        Order existingOrder = getOrderById(id);
         orderRepository.delete(existingOrder);
-
-    }
-
-    @Override
-    public Order getOrderById(Long id) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public Order getOrderbyDateTimeOrder(LocalDate dateTimeOrder) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

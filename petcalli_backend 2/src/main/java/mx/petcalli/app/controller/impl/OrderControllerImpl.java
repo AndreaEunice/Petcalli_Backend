@@ -29,7 +29,7 @@ public class OrderControllerImpl implements OrderController {
 
     @Override
     @GetMapping("{id}")
-    public ResponseEntity<Order> getOrderById(@PathVariable("id") Long id) {
+    public ResponseEntity<Order> getOrderById(@PathVariable("id") Integer id) {
         return ResponseEntity.ok(orderService.getOrderById( id )) ;
     }
 
@@ -47,15 +47,15 @@ public class OrderControllerImpl implements OrderController {
 
 	@Override
 	@PutMapping("{id}")
-	public ResponseEntity<Order> updateOrder(@RequestBody Order order,@PathVariable("id") Long id) {
+	public ResponseEntity<Order> updateOrder(@RequestBody Order order,@PathVariable("id") Integer id) {
 		return ResponseEntity.ok( orderService.updateOrder(order, id) );
 	}
 
     @Override
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> deleteOrder(Long id) {
+    public ResponseEntity<Void> deleteOrder(Integer id) {
         orderService.deleteOrder(id);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 
 }
