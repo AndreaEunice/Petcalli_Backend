@@ -1,15 +1,16 @@
 package mx.petcalli.app.controller.impl;
 
-import java.util.Set;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import mx.petcalli.app.controller.AddressController;
 import mx.petcalli.app.model.Address;
 
 @CrossOrigin(origins = "*")
+// Apirest las solicitudes http 
+@RequestMapping("/api/v1/address")
 @RestController 
 public class AddressControllerImpl implements AddressController{
 
@@ -48,5 +49,7 @@ public class AddressControllerImpl implements AddressController{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 
 }

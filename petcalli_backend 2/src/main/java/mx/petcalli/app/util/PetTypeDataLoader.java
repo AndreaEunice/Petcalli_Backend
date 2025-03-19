@@ -2,10 +2,14 @@ package mx.petcalli.app.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
 
 import mx.petcalli.app.model.PetType;
 import mx.petcalli.app.repository.PetTypeRepository;
 
+@Component
+@Order(1)
 public class PetTypeDataLoader implements CommandLineRunner {
 	@Autowired
 	PetTypeRepository petTypeRepository;

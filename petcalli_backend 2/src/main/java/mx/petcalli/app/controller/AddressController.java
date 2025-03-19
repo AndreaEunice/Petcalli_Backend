@@ -1,7 +1,5 @@
 package mx.petcalli.app.controller;
 
-import java.util.Set;
-
 import org.springframework.http.ResponseEntity;
 import mx.petcalli.app.model.Address;
 
@@ -11,8 +9,7 @@ public interface AddressController {
 	ResponseEntity<Address> getAddressByIdUsynResponEntity(Integer id);
 	
 	//Obtener todas las direcciones 
-	Set<Address> getAllAddress();
-	ResponseEntity< Set <Address> > getAllAddresses();
+	ResponseEntity< Iterable <Address> > getAllAddresses();
 	
 	//Crear una nueva dirección
 	ResponseEntity <Address> createAddress(Address newAddress);

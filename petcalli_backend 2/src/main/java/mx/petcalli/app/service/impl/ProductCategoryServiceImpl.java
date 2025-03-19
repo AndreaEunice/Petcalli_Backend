@@ -1,9 +1,7 @@
 package mx.petcalli.app.service.impl;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 
@@ -43,22 +41,25 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 	}
 
 	@Override
-	public Page<ProductCategory> getAllProductCategories(boolean isActive, int pageNumber, int pageSize) {
-		// TODO Auto-generated method stub
-		return null;
+	public Iterable<ProductCategory> getAllProductCategories() {
+		return productCategoryRepository.findAll();
 	}
-
+	
 	@Override
-	public ProductCategory updateCustomer(ProductCategory productCategory, Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+	public ProductCategory updateProductCategory(ProductCategory productCategory, Integer id) {
+		ProductCategory existingProductCategory = getProductCategoryById(id);
+	    
+	    existingProductCategory.setName(productCategory.getName());
+	    //existingProductCategory.setDescription(productCategory.getDescription());
+	    
+	    return productCategoryRepository.save(existingProductCategory);
 	}
 
 	@Override
 	public void deleteProductCategory(Integer id) {
 		ProductCategory existingProductCategory = getProductCategoryById( id );
-		
-		
+		productCategoryRepository.delete(existingProductCategory);		
 	}
+
 
 }
