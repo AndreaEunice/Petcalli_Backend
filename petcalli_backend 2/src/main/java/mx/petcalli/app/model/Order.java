@@ -23,7 +23,7 @@ public class Order  {
 	private Integer id; 
 
 	@ManyToOne
-	@JoinColumn(name = "fk_users_id", nullable = false)
+	@JoinColumn(name = "fk_users_id")
 	@JsonIgnoreProperties({"name","lastName", "email", "telephone","password"})
 	private User user;
 
@@ -43,8 +43,8 @@ public class Order  {
 	
 	}
 
-    public Order(User user, Integer amountProducts, LocalDateTime dateTimeOrder,  String paymentMethod, BigDecimal totalPrice) {
-        this.user = user;
+    public Order(Integer amountProducts, LocalDateTime dateTimeOrder,  String paymentMethod, BigDecimal totalPrice) {
+        //this.user = user;
         this.amountProducts = amountProducts;
         this.dateTimeOrder = dateTimeOrder;
         this.paymentMethod = paymentMethod;
@@ -58,14 +58,14 @@ public class Order  {
     public void setId(Integer id) {
         this.id = id;
     }
-
+/* 
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
-    }
+    } */
 
     public Integer getAmountProducts() {
         return amountProducts;
@@ -104,7 +104,7 @@ public class Order  {
     public String toString() {
         return "Order{" +
                 "id=" + id +
-                ", user=" + user +
+                //", user=" + user +
                 ", amountProducts=" + amountProducts +
                 ", dateTimeOrder=" + dateTimeOrder +
                 ", totalPrice=" + totalPrice +
