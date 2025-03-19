@@ -16,7 +16,6 @@ public interface UserRepository extends CrudRepository<User, Integer>, PagingAnd
 	Set<User> findByTelephone(String telephone);
 	Set<User> findByPassword(String password);
 
-	// Page<User> findAllByActiveTrue(Pageable pageable);
-	// Page<User> findAllByActiveFalse(Pageable pageable);
+	
 
 }
