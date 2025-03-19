@@ -1,5 +1,6 @@
 package mx.petcalli.app.util;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.slf4j.Logger;
@@ -26,12 +27,12 @@ public class OrderDataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        orderRepository.save(new Order(null, 5, LocalDateTime.now(), "tarjeta_de_credito", null));
-        orderRepository.save(new Order(null, 2, LocalDateTime.now(), "tarjeta_de_debito", null));
-        orderRepository.save(new Order(null, 1, LocalDateTime.now(), "tarjeta_de_credito", null));
-        orderRepository.save(new Order(null, 1, LocalDateTime.now(), "tarjeta_de_debito", null));
-        orderRepository.save(new Order(null, 1, LocalDateTime.now(), "tarjeta_de_credito", null));
-        orderRepository.save(new Order(null, 3, LocalDateTime.now(), "tarjeta_de_debito", null));
+        orderRepository.save(new Order(null, 5, LocalDateTime.now(), "tarjeta_de_credito", BigDecimal.valueOf(820.50)));
+        orderRepository.save(new Order(null, 2, LocalDateTime.now(), "tarjeta_de_debito", BigDecimal.valueOf(100.75)));
+        orderRepository.save(new Order(null, 1, LocalDateTime.now(), "tarjeta_de_credito", BigDecimal.valueOf(451.25)));
+        orderRepository.save(new Order(null, 1, LocalDateTime.now(), "tarjeta_de_debito", BigDecimal.valueOf(1000.70)));
+        orderRepository.save(new Order(null, 1, LocalDateTime.now(), "tarjeta_de_credito", BigDecimal.valueOf(484.50)));
+        orderRepository.save(new Order(null, 3, LocalDateTime.now(), "tarjeta_de_debito", BigDecimal.valueOf(579.50)));
 
         
        

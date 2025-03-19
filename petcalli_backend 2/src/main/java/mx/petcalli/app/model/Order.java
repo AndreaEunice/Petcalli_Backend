@@ -23,8 +23,8 @@ public class Order  {
 	private Integer id; 
 
 	@ManyToOne
-	@JoinColumn(name = "fk_users_id")
-	@JsonIgnoreProperties({"firstName","lastName", "birthdate", "active","role"})
+	@JoinColumn(name = "fk_users_id", nullable = false)
+	@JsonIgnoreProperties({"name","lastName", "email", "telephone","password"})
 	private User user;
 
 	@Column(name = "amount_products", nullable = false)
@@ -100,6 +100,17 @@ public class Order  {
     }
 
 
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", user=" + user +
+                ", amountProducts=" + amountProducts +
+                ", dateTimeOrder=" + dateTimeOrder +
+                ", totalPrice=" + totalPrice +
+                ", paymentMethod='" + paymentMethod + '\'' +
+                '}';
+    }
 	
 	
 	
