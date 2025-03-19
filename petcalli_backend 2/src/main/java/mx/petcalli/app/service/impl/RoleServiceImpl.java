@@ -13,7 +13,7 @@ public class RoleServiceImpl implements RoleService{
 	RoleServiceImpl(RoleRepository roleRepository){
 		this.roleRepository = roleRepository;
 	}
-	
+
 	@Override
 	public Role createRole(Role role) {
 		// TODO Auto-generated method stub
@@ -32,11 +32,18 @@ public class RoleServiceImpl implements RoleService{
 		return null;
 	}
 
-
 	@Override
 	public void deleteRole(Integer id) {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public Iterable<Role> getAllRoles() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 
 }
