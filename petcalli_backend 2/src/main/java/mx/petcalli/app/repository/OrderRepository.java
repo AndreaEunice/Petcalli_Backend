@@ -1,4 +1,4 @@
-package mx.petcalli.app.repository;
+/*package mx.petcalli.app.repository;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -20,3 +20,4 @@ Set<Order>findByPaymentMethod(String paymentMethod);
 // Page<Order> findAllByActiveTrue(Pageable pageable);
 // Page<Order> findAllByActiveFalse(Pageable pageable);
 }
+*/

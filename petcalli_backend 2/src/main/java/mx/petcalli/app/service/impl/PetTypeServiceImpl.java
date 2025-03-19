@@ -1,4 +1,4 @@
-package mx.petcalli.app.service.impl;
+/*package mx.petcalli.app.service.impl;
 
 import org.springframework.stereotype.Service;
 
@@ -21,3 +21,4 @@ public class PetTypeServiceImpl implements PetTypeService {
 	}
 	
 }	
+*/

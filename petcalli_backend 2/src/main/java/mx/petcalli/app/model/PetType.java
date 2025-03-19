@@ -1,4 +1,4 @@
-package mx.petcalli.app.model;
+/*package mx.petcalli.app.model;
 
 import jakarta.persistence.*;
 
@@ -68,3 +68,4 @@ public class PetType  {
 	
 
 }
+*/

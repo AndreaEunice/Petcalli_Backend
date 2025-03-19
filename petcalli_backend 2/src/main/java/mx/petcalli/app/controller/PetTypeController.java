@@ -1,4 +1,4 @@
-package mx.petcalli.app.controller;
+/*package mx.petcalli.app.controller;
 
 import java.util.Set;
 
@@ -17,3 +17,4 @@ public interface PetTypeController {
 	ResponseEntity<Void> deleteProduct(int id);
 	
 }
+*/

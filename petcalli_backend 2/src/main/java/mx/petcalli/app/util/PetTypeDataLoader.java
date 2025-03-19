@@ -1,4 +1,4 @@
-package mx.petcalli.app.util;
+/*package mx.petcalli.app.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -24,4 +24,4 @@ public class PetTypeDataLoader implements CommandLineRunner {
 		}
 }
 
-	
+*/	
