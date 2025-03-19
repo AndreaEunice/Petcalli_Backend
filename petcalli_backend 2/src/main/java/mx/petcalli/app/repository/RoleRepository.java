@@ -1,4 +1,4 @@
-/*package mx.petcalli.app.repository;
+package mx.petcalli.app.repository;
 
 
 
@@ -16,4 +16,3 @@ public interface RoleRepository  extends CrudRepository<Role, Integer>, PagingAn
 
 }
 
-*/
