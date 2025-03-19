@@ -1,4 +1,4 @@
-package mx.petcalli.app.util;
+/*package mx.petcalli.app.util;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,3 +25,4 @@ public class UserDataLoader implements CommandLineRunner{
       userRepository.save(new User("Carlos", "Rodriguez", "carlos.rodriguez@pets.com", "777-888-9999", "VetL0v#9"));
         }
 }
+*/
