@@ -1,19 +1,16 @@
 package mx.petcalli.app.controller;
 
-import java.util.Set;
-
 import org.springframework.http.ResponseEntity;
-
 import mx.petcalli.app.model.Coupon;
 
 public interface CouponController {
 
 	// Controlar la respuesta a 200, 201, 404
-		ResponseEntity<Coupon> getAddressByIdUsynResponEntity(Integer id);
+		ResponseEntity<Coupon> getCouponByIdUsynResponEntity(Integer id);
 		
 		//Obtener todos los cupones 
-		Set<Coupon> getAllCoupon();
-		ResponseEntity< Set <Coupon> > getAllAddresses();
+		ResponseEntity< Iterable <Coupon> > getAllCoupon();
+	
 		
 		//Crear nuevos cupones
 		ResponseEntity <Coupon> createCoupon(Coupon newCoupon);
