@@ -1,8 +1,6 @@
-/*package main.java.mx.petcalli.app.service.impl;
+package mx.petcalli.app.service.impl;
 
-import java.util.Set;
 
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 
@@ -15,58 +13,62 @@ public class VendorServiceImpl implements VendorService {
 
 	private final VendorRepository vendorRepository;
 	
-	VendorServiceImpl(VendorRepository vendorRepository){
+	public VendorServiceImpl(VendorRepository vendorRepository){
 		this.vendorRepository = vendorRepository;
 	}
 	
 	
 	@Override
-	public mx.petcalli.app.model.Vendor createVendor(mx.petcalli.app.model.Vendor vendor) {
+	public  Vendor createVendor(Vendor vendor) {
+		return vendorRepository.save(vendor);
+	}
+
+	@Override
+	public Vendor getVendorById(Integer id) {
 		
 		return null;
 	}
 
 	@Override
-	public mx.petcalli.app.model.Vendor getVendorById(Integer id) {
+	public Vendor getVendorByFk1(String fk1) {
 		
 		return null;
 	}
 
 	@Override
-	public mx.petcalli.app.model.Vendor getVendorByFk1(String fk1) {
+	public Vendor getVendorByNameStore(String nameStore) {
 		
 		return null;
 	}
 
 	@Override
-	public mx.petcalli.app.model.Vendor getVendorByNameStore(String nameStore) {
+	public Vendor getVendorByRfc(String rfc) {
 		
 		return null;
 	}
 
 	@Override
-	public mx.petcalli.app.model.Vendor getVendorByRfc(String rfc) {
+	public Vendor getVendorByUrl(String url) {
 		
 		return null;
 	}
 
 	@Override
-	public mx.petcalli.app.model.Vendor getVendorByUrl(String url) {
+	public Vendor getVendorByStoreDescription(String storeDescription) {
 		
 		return null;
 	}
 
 	@Override
-	public mx.petcalli.app.model.Vendor getVendorByStoreDescription(String storeDescription) {
+	public Vendor getVendorByTermsConditionsUrl(String termsConditionsUrl) {
 		
 		return null;
 	}
 
+
 	@Override
-	public mx.petcalli.app.model.Vendor getVendorByTermsConditionsUrl(String termsConditionsUrl) {
-		
+	public Vendor getVendorByDescription(String description) {
 		return null;
 	}
 
 }  
-*/
