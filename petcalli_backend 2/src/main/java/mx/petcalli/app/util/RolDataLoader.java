@@ -1,5 +1,7 @@
 package mx.petcalli.app.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 
@@ -12,6 +14,8 @@ import mx.petcalli.app.repository.RoleRepository;
 public class RolDataLoader implements CommandLineRunner{
 	@Autowired
 	RoleRepository rP;
+	
+	private static final Logger log = LoggerFactory.getLogger(RolDataLoader.class);
 	
 	@Override
 	public void run(String... args) throws Exception {
