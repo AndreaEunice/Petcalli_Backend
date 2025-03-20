@@ -36,9 +36,13 @@ public class User {
 	@Column(name = "password", length = 100, nullable = false)
 	private String password; 
 
-	    @OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user")
     @JsonIgnoreProperties("user") // Evita la recursión infinita al serializar
     private List<Order> orders;
+	    
+	@OneToMany(mappedBy = "user")
+	@JsonIgnoreProperties("user") // Evita la recursión infinita al serializar
+	private List<Address> Address;
 	
 	User (){
 		

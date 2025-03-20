@@ -10,8 +10,9 @@ public class Address {
  @GeneratedValue(strategy = GenerationType.IDENTITY) 
  private Integer id; 
 
- /*@Column(name = "fkUsersId", length = 100, nullable = false)
- private Integer fkUsersId; // fk*/
+ @ManyToOne 
+ @JoinColumn(name = "fkUsersId")
+ private User user;
 
  @Column(name = "street", length = 300, nullable = false)
  private String street;
