@@ -10,19 +10,19 @@ public interface ProductService {
  
  Product getProductById(int id);
  
- Product getProductByTitle(String title);
+ Iterable<Product> getProductByTitle(String title);
  
- Product getProductByBrand(String brand);
+ Iterable<Product> getProductByBrand(String brand);
  
- Product getProductByImage(String image);
+ Iterable<Product> getProductByImage(String image);
  
- Product getProductByPrice(Double price);
+ Iterable<Product> getProductByPrice(Double price);
  
- Product getProductByDescription(String description);
+ Iterable<Product> getProductByDescription(String description);
  
- Product getProductByColor(String color);
+ Iterable<Product> getProductByColor(String color);
  
- Product getProductBySize(String size);
+ Iterable<Product> getProductBySize(String size);
  
  Iterable<Product> getAllProducts();
  
