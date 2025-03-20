@@ -71,10 +71,13 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getUserByTelephone(String telephone) {
-		// TODO Auto-generated method stub
-		return null;
+        Iterable<User> telephones = userRepository.findByTelephone(telephone);
+        for (User tel : telephones) {
+            return tel;
+        }
+        throw new IllegalStateException("Telephone: " + telephone + "no existe");
 	}
-
+	
 	@Override
 	public User getUserByPassword(String password) {
 		// TODO Auto-generated method stub
@@ -82,11 +85,29 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User updateUser(User user, Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+    public User updateUser(User user, Integer id) {
+        if (id == null) {
+            throw new IllegalArgumentException("El ID del usuario no puede ser nulo");
+        } if (user == null) {
+            throw new IllegalArgumentException("El objeto User no puede ser nulo");
+        }
+        User existingUser = getUserById(id) .orElseThrow(() -> new RuntimeException("Usuario no encontrado con ID: " + id));
+        if(user.getName() != null) {
+            existingUser.setName(user.getName() );
+            } if (user.getLastName() != null) {
+            existingUser.setLastName(user.getLastName());
+            } if (user.getEmail() != null) {
+            existingUser.setEmail(user.getEmail());
+            } if (user.getTelephone() != null) {
+            existingUser.setTelephone(user.getTelephone() );
+            } if (user.getPassword() != null) {
+            existingUser.setPassword(user.getPassword());
+            } try {
+            return userRepository.save(existingUser);
+            } catch (Exception e) {
+                throw new RuntimeException("Error al actualizar el usuario");
+            }
+        }
 	@Override
 	public void deleteUser(Integer id) {
 		// TODO Auto-generated method stub
