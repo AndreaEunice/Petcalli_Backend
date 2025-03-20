@@ -10,7 +10,9 @@ public class Role  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer id; 
 
-	@Column(name = "role", length = 100, nullable = false)
+
+
+	@Column(name = "role", length = 45, nullable = false)
 	private String role;
 
         @Column(name = "description", length= 300, nullable = false)
@@ -22,8 +24,8 @@ public class Role  {
       }
 
 
-	public Role(Integer id, String role, String description) {
-		this.id = id;
+	public Role( String role, String description) {
+		//this.id = id;
 		this.role = role;
 		this.description = description;
 	}
@@ -42,6 +44,7 @@ public class Role  {
 	public String getRole() {
 		return role;
 	}
+	
 
 
 	public void setRole(String role) {
@@ -76,3 +79,4 @@ public class Role  {
 	
       
 }
+

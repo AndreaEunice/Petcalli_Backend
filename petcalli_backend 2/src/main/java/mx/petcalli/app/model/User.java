@@ -1,6 +1,16 @@
 package mx.petcalli.app.model;
 
-import jakarta.persistence.*;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "users") // indica el nombre d enuestra tabla
@@ -25,6 +35,10 @@ public class User {
 	
 	@Column(name = "password", length = 100, nullable = false)
 	private String password; 
+
+	    @OneToMany(mappedBy = "user")
+    @JsonIgnoreProperties("user") // Evita la recursión infinita al serializar
+    private List<Order> orders;
 	
 	User (){
 		
@@ -87,6 +101,10 @@ public class User {
 		this.password = password;
 	}
 
+	public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -103,10 +121,4 @@ public class User {
 		builder.append("]");
 		return builder.toString();
 	}
-
-	
-	
-
-	
-	
 }

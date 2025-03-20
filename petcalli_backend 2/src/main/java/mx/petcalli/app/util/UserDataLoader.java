@@ -3,10 +3,14 @@ package mx.petcalli.app.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
 
 import mx.petcalli.app.model.User;
 import mx.petcalli.app.repository.UserRepository;
 
+@Component
+@Order(2)
 public class UserDataLoader implements CommandLineRunner{
         @Autowired
       UserRepository userRepository;

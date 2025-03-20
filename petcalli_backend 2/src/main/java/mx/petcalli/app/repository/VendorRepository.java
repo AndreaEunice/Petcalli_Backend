@@ -1,4 +1,4 @@
-package mx.petcalli.app.repository;
+/*package mx.petcalli.app.repository;
 
 
 import java.util.Set;
@@ -14,14 +14,15 @@ import mx.petcalli.app.model.Vendor;
 
 public interface VendorRepository extends CrudRepository<Vendor, Integer>, PagingAndSortingRepository<Vendor, Integer>{
 	Set<Vendor> findByNameStore(String nameStore);
-	Set<Vendor> findByRFC(String rfc);
+	Set<Vendor> findByRfc(String rfc);
 
 	Set<Vendor> findAllByUrl(String url);
 	Set<Vendor> findAllByStoreDescription(String storeDescription);
 	Set<Vendor> findAllByTermsConditionUrl(String termsConditionUrl);
 	
 
-	Page<Product> findAllByActiveTrue(Pageable pageable);
-	Page<Product> findAllByActiveFalse(Pageable pageable);
+	// Page<Product> findAllByActiveTrue(Pageable pageable);
+	// Page<Product> findAllByActiveFalse(Pageable pageable);
 }
 
+*/

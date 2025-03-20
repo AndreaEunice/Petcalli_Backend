@@ -1,4 +1,4 @@
-package mx.petcalli.app.model;
+/*package mx.petcalli.app.model;
 
 import jakarta.persistence.*;
 
@@ -25,7 +25,8 @@ public class Vendor  {
 	@Column(name = "store_description", length = 300, nullable = false)
 	private String storeDescription;  
 	
-    @Column(name = "terms_condition_url", length = 300, nullable = true)
+    @Column(name = "terms_conditions_url", length = 300, nullable = true)
+
 	private String termsConditionUrl;
 	
     
@@ -141,3 +142,4 @@ public class Vendor  {
 	
 	
 }
+*/
