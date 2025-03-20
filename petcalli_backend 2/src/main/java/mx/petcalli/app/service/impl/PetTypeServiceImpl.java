@@ -2,6 +2,7 @@ package mx.petcalli.app.service.impl;
 
 import java.util.Collection;
 import java.util.LinkedHashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.stereotype.Service;
@@ -27,7 +28,13 @@ public class PetTypeServiceImpl implements PetTypeService {
 	@Override
 	public PetType getPetTypeById(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		Optional<PetType> optionalPetType = petTypeRepository.findById(id);
+		if(optionalPetType.isEmpty()) {
+			throw new IllegalStateException("PetType doesnt exist with this id");
+			
+		}
+		PetType existingPetType = optionalPetType.get();
+		return existingPetType;
 	}
 
 	@Override

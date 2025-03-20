@@ -5,6 +5,7 @@ import java.util.Set;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,15 +18,22 @@ import mx.petcalli.app.service.PetTypeService;
 @RequestMapping("/api/v1/pettypes") // localhost:8080/api/v1 
 public class PetTypeControllerImpl implements PetTypeController{
 	
+	/*Inyección de dependencias del Servicio*/
+	
 	private final PetTypeService petTypeService;
 	
 	public PetTypeControllerImpl(PetTypeService petTypeService) {
 		this.petTypeService = petTypeService;
 	}
+	
+	/*Inician los endpoints*/
+	
 	@Override
-	public ResponseEntity<PetType> getPetTypeId(int id) {
+	@GetMapping("{id}")
+	public ResponseEntity<PetType> getPetTypeId(@PathVariable("id") int id) {
 		// TODO Auto-generated method stub
-		return null;
+		PetType petTypeId = petTypeService.getPetTypeById(id);
+		return ResponseEntity.ok(petTypeId);
 	}
 
 	@Override
