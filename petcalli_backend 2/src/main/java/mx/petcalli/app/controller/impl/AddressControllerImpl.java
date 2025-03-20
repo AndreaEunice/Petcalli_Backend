@@ -17,7 +17,7 @@ import mx.petcalli.app.service.AddressService;
 
 @CrossOrigin(origins = "*")
 // APIREST para las solicitudes http 
-@RequestMapping("api/v1/address")
+@RequestMapping("/api/v1/address")
 @RestController 
 public class AddressControllerImpl implements AddressController{
 

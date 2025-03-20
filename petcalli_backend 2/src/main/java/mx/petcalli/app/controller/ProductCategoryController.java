@@ -6,8 +6,6 @@ import mx.petcalli.app.model.ProductCategory;
 
 
 public interface ProductCategoryController {
-	
-	ProductCategory getProductCategoryById(int id);
 
 	ResponseEntity<ProductCategory> getProductCategoryByIdUsingResponseEntity(Integer id);
 

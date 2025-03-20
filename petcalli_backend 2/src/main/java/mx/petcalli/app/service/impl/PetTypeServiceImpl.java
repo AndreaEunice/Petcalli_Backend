@@ -20,6 +20,8 @@ public class PetTypeServiceImpl implements PetTypeService {
 	PetTypeServiceImpl(PetTypeRepository petTypeRepository){
 		this.petTypeRepository = petTypeRepository;
 	}
+	
+	
 	@Override
 	public PetType createPetType(PetType petType) {
 		Optional<PetType> optionalPetType = petTypeRepository.findById(petType.getId());
@@ -60,6 +62,8 @@ public class PetTypeServiceImpl implements PetTypeService {
 
 	@Override
 	public void deletePetType(int id) {
+		PetType existingPetType = getPetTypeById(id);
+		petTypeRepository.delete(existingPetType);
 		
 	}
 	
