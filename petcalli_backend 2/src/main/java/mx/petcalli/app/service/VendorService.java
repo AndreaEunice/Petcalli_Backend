@@ -1,6 +1,10 @@
-package mx.petcalli.app.service;
+/*package main.java.mx.petcalli.app.service;
 
+import java.util.Set;
 
+import org.springframework.data.domain.Page;
+
+import mx.petcalli.app.model.Product;
 import mx.petcalli.app.model.Vendor;
 
 public interface VendorService {
@@ -16,3 +20,4 @@ public interface VendorService {
 	Vendor getVendorByTermsConditionsUrl(String termsConditionsUrl);
 	
 }
+*/
