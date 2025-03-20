@@ -4,6 +4,7 @@ import java.util.Set;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,10 +19,10 @@ import mx.petcalli.app.service.PetTypeService;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/api/v1/pettypes") // localhost:8080/api/v1 
+@RequestMapping("/api/v1/pettypes") 
 public class PetTypeControllerImpl implements PetTypeController{
 	
-	/*Inyección de dependencias del Servicio*/
+	/* Inyección de dependencias del Servicio */
 	
 	private final PetTypeService petTypeService;
 	
@@ -29,7 +30,6 @@ public class PetTypeControllerImpl implements PetTypeController{
 		this.petTypeService = petTypeService;
 	}
 	
-	/*Inician los endpoints*/
 	
 	@Override
 	@GetMapping("{id}")
@@ -43,12 +43,6 @@ public class PetTypeControllerImpl implements PetTypeController{
 	public ResponseEntity<Set<PetType>> getAllPetTypes() {
 		Set<PetType> petTypes = petTypeService.getAllPetTypes();
 		return ResponseEntity.ok(petTypes);
-	}
-	
-	
-	@Override
-	public ResponseEntity<PetType> getByPetType() {
-		return null;
 	}
 	
 
@@ -67,9 +61,11 @@ public class PetTypeControllerImpl implements PetTypeController{
 	}
 
 	@Override
-	public ResponseEntity<Void> deletePetType(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	@DeleteMapping("{id}")
+	public ResponseEntity<Void> deletePetType(@PathVariable("id") int id) {
+		petTypeService.deletePetType(id);
+		 return ResponseEntity.noContent().build();
+
 	}
 	
 

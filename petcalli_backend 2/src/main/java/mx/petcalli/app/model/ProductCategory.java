@@ -1,11 +1,19 @@
 package mx.petcalli.app.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "productsCategory") 
 public class ProductCategory  {
 
+	
+	@OneToOne(mappedBy = "productCategory")
+	@JsonIgnoreProperties("productCategory")
+	private Product product; 
+	
+	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer id; 
