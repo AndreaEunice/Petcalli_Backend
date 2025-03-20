@@ -9,11 +9,10 @@ import mx.petcalli.app.model.PetType;
 
 public interface PetTypeController {
 	ResponseEntity<PetType> getPetTypeId(int id);
-	ResponseEntity<PetType> getByPetType();
 	
 	ResponseEntity< Set<PetType> > getAllPetTypes();
-	ResponseEntity<PetType> createProduct(PetType newPetType);
-	ResponseEntity<PetType> updateProduct(PetType petType, int id);
-	ResponseEntity<Void> deleteProduct(int id);
+	ResponseEntity<PetType> createPetType(PetType newPetType);
+	ResponseEntity<PetType> updatePetType(PetType petType, int id);
+	ResponseEntity<Void> deletePetType(int id);
 	
 }

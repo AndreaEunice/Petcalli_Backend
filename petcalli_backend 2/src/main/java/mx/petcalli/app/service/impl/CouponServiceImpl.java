@@ -19,67 +19,77 @@ public class CouponServiceImpl implements CouponService {
 
 	@Override
 	public Coupon createCoupon(Coupon coupon) {
-		// Guarda un nuevo cupon en la base de datos
+		// Guarda nuevo cupon en la base de datos
 		return couponRepository.save(coupon);
 	}
 
 	@Override
 	public Coupon getCouponById(Integer id) {
-		// Busca un cupon por su ID
+		// Busca cupon por su ID
 		return couponRepository.findById(id).orElse(null);
 	}
 
 	@Override
 	public Coupon getCouponByStartValidDate(LocalDate startValidDate) {
-		
-		return (null);
+		// Buscar cupon por su fecha de inicio
+		return couponRepository.findByStartValidDate(startValidDate).iterator().next();
 	}
 
 	@Override
 	public Coupon getCouponByEndValidDate(LocalDate endValidDate) {
-		// TODO Auto-generated method stub
-		return null;
+		  // Busca cupon por su fecha de finalizacion de validez
+        return couponRepository.findByEndValidDate(endValidDate).orElse(null);
 	}
 
 	@Override
 	public Coupon getCouponByCode(String code) {
-		// TODO Auto-generated method stub
-		return null;
+		// Buscarlo por codigo
+		return couponRepository.findByCode(code).iterator().next();
 	}
 
 	@Override
 	public Coupon getCouponByPurchaseList(Double purchaseList) {
-		// TODO Auto-generated method stub
-		return null;
+		// Busca cupon por su limite de compra
+        return couponRepository.findByPurchaseLimit(purchaseList).orElse(null);
 	}
 
 	@Override
 	public Coupon getCouponByDiscount(Double discount) {
-		// TODO Auto-generated method stub
-		return null;
+		// Buscar por su descuento
+		return couponRepository.findByDiscount(discount).iterator().next();
 	}
 
 	@Override
 	public Iterable<Coupon> getAllCoupon() {
-		// TODO Auto-generated method stub
-		return null;
+		// Todos los cupones
+		return couponRepository.findAll();
 	}
 
 	@Override
 	public Coupon addCoupon(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		// Si ya existe el cupon con el id y se necesita actualizar
+        return couponRepository.findById(id).map(coupon -> {
+            coupon.setId(id); // Si el cupon ya existe, solo se actualiza
+            return couponRepository.save(coupon); // Guarda el cupon actualizado
+        }).orElseThrow(() -> new RuntimeException("Coupon not found"));
 	}
 
 	@Override
 	public Coupon updateCoupon(Coupon coupon, Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		   return couponRepository.findById(id).map(existingCoupon -> {
+	            existingCoupon.setStartValidDate(coupon.getStartValidDate());
+	            existingCoupon.setEndValidDate(coupon.getEndValidDate());
+	            existingCoupon.setCode(coupon.getCode());
+	            existingCoupon.setPurchaseLimit(coupon.getPurchaseLimit());
+	            existingCoupon.setDiscount(coupon.getDiscount());
+	            return couponRepository.save(existingCoupon); // Guarda el cupon actualizado
+	        }).orElseThrow(() -> new RuntimeException("Coupon not found"));
+	 
 	}
 
 	@Override
 	public void deleteCoupon(Integer id) {
-		// TODO Auto-generated method stub
+		couponRepository.deleteById(id);
 		
 	}
 }

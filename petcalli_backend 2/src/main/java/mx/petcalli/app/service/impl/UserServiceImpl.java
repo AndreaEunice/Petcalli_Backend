@@ -1,15 +1,15 @@
-/*/*package mx.petcalli.app.service.impl;
+package mx.petcalli.app.service.impl;
 
-import java.time.LocalDate;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import mx.petcalli.app.model.User;
-import mx.petcalli.app.model.Role;
+//import mx.petcalli.app.model.Role;
 import mx.petcalli.app.repository.UserRepository;
-import mx.petcalli.app.service.RoleService;
+//import mx.petcalli.app.service.RoleService;
 import mx.petcalli.app.service.UserService;
 
 
@@ -17,41 +17,56 @@ import mx.petcalli.app.service.UserService;
 public class UserServiceImpl implements UserService {
 	
 	private final UserRepository userRepository;
-	private final RoleService roleService;
+	//private final RoleService roleService;
 	
-	public UserServiceImpl(UserRepository userRepository, RoleService roleService) {
+	public UserServiceImpl(UserRepository userRepository) {
 		this.userRepository = userRepository;
-		this.roleService = roleService;	
+		//this.roleService = roleService;	
 	}
 
 	@Override
 	public User createUser(User user) {
-		// TODO Auto-generated method stub
-		return null;
+		user.setId(null);
+        return userRepository.save(user);
+	}
+
+	@Override
+	public Iterable<User> getAllUsers() {
+		return userRepository.findAll();
 	}
 
 	@Override
 	public User getUserById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<User> existingUser = userRepository.findById(id);
+        return existingUser.orElseThrow(() -> 
+            new IllegalStateException("User does not exist with id " + id));
 	}
 
 	@Override
 	public User getUserByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		Iterable<User> existingByName = userRepository.findByName(name);
+        for (User user : existingByName) {
+            return user;
+        }
+        throw new IllegalStateException("User no existe con el nombre " + name);
 	}
 
 	@Override
 	public User getUserByLasName(String lastName) {
-		// TODO Auto-generated method stub
-		return null;
+		Iterable<User> existingByLastName = userRepository.findByLastName(lastName);
+        for (User user : existingByLastName) {
+            return user;
+        }
+        throw new IllegalStateException("User no existe con el apellido " + lastName);
 	}
 
 	@Override
 	public User getUserByEmail(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		Iterable<User> existingUserByEmail = userRepository.findByEmail(email);
+		for (User user : existingUserByEmail) {
+            return user;
+        }
+        throw new IllegalStateException("User no existe con el email " + email);	
 	}
 
 	@Override
@@ -65,8 +80,6 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-
 
 	@Override
 	public User updateUser(User user, Integer id) {
@@ -75,12 +88,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void deletUser(Integer id) {
+	public void deleteUser(Integer id) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	
-	
-
-}*/
+}
