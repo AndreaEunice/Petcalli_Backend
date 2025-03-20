@@ -110,7 +110,16 @@ public class UserServiceImpl implements UserService {
         }
 	@Override
 	public void deleteUser(Integer id) {
-		// TODO Auto-generated method stub
+		if (id == null || id <= 0) {
+			throw new IllegalStateException("Id no valido");
+		}
+		Optional<User>  userOptional = userRepository.findById(id);
+		if (userOptional.isPresent()) {
+			userRepository.deleteById(id);
+		} else{
+			throw new IllegalStateException("El usuario no existe");
+		}
+
 		
 	}
 
