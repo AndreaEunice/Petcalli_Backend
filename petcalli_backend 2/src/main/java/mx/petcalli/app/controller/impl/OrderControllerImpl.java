@@ -53,7 +53,7 @@ public class OrderControllerImpl implements OrderController {
 
     @Override
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> deleteOrder(Integer id) {
+    public ResponseEntity<Void> deleteOrder(@PathVariable ("id")Integer id) {
         orderService.deleteOrder(id);
         return ResponseEntity.noContent().build();
     }
