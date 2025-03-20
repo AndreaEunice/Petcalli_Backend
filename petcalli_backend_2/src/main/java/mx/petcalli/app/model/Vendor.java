@@ -1,4 +1,4 @@
-/*package mx.petcalli.app.model;
+package mx.petcalli.app.model;
 
 import jakarta.persistence.*;
 
@@ -10,8 +10,9 @@ public class Vendor  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer id; 
 
-	@Column(name = "users_id", length = 100, nullable = false)
-	private Integer usersId; // fk
+    @ManyToOne
+	@JoinColumn(name = "users_id")
+	private User user; 
 
 	@Column(name = "name_store", length = 45, nullable = false)
 	private String nameStore;
@@ -35,10 +36,10 @@ public class Vendor  {
     }
 
 
-	public Vendor(Integer id, Integer usersId, String nameStore, String rfc, String url, String storeDescription,
+	public Vendor(Integer id, User user, String nameStore, String rfc, String url, String storeDescription,
 			String termsConditionUrl) {
 		this.id = id;
-		this.usersId = usersId;
+		this.user = user;
 		this.nameStore = nameStore;
 		this.rfc = rfc;
 		this.url = url;
@@ -47,6 +48,14 @@ public class Vendor  {
 	}
 
 
+	public String getUserName(){
+		return user.getName();
+	}
+
+	public void setUserName(String userName){
+			this.user.setName(userName);
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -54,16 +63,6 @@ public class Vendor  {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-
-	public Integer getUsersId() {
-		return usersId;
-	}
-
-
-	public void setUsersId(Integer usersId) {
-		this.usersId = usersId;
 	}
 
 
@@ -122,8 +121,6 @@ public class Vendor  {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Vendor [id=");
 		builder.append(id);
-		builder.append(", usersId=");
-		builder.append(usersId);
 		builder.append(", nameStore=");
 		builder.append(nameStore);
 		builder.append(", rfc=");
@@ -137,9 +134,19 @@ public class Vendor  {
 		builder.append("]");
 		return builder.toString();
 	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 	
 	
 	
 	
 }
-*/
+
