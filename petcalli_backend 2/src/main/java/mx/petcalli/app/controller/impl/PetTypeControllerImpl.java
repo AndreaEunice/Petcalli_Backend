@@ -6,6 +6,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,39 +34,40 @@ public class PetTypeControllerImpl implements PetTypeController{
 	@Override
 	@GetMapping("{id}")
 	public ResponseEntity<PetType> getPetTypeId(@PathVariable("id") int id) {
-		// TODO Auto-generated method stub
 		PetType petTypeId = petTypeService.getPetTypeById(id);
 		return ResponseEntity.ok(petTypeId);
-	}
-
-	@Override
-	public ResponseEntity<PetType> getByPetType() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	
 	@GetMapping
 	@Override
 	public ResponseEntity<Set<PetType>> getAllPetTypes() {
-		// TODO Auto-generated method stub
 		Set<PetType> petTypes = petTypeService.getAllPetTypes();
 		return ResponseEntity.ok(petTypes);
 	}
+	
+	
+	@Override
+	public ResponseEntity<PetType> getByPetType() {
+		return null;
+	}
+	
 
 	@Override
-	public ResponseEntity<PetType> createProduct(PetType newPetType) {
-		// TODO Auto-generated method stub
-		return null;
+	@PostMapping
+	public ResponseEntity<PetType> createPetType(@RequestBody PetType newPetType) {
+		PetType nuevaPetType = petTypeService.createPetType(newPetType);
+		return ResponseEntity.status(201).body(nuevaPetType);
 	}
 
 	@Override
-	public ResponseEntity<PetType> updateProduct(PetType petType, int id) {
-		// TODO Auto-generated method stub
-		return null;
+	@PutMapping("{id}")
+	public ResponseEntity<PetType> updatePetType(@RequestBody PetType petType, @PathVariable("id") int id) {
+		PetType actualizarPetType = petTypeService.updatePetType(petType, id);
+		return ResponseEntity.status(200).body(actualizarPetType);
 	}
 
 	@Override
-	public ResponseEntity<Void> deleteProduct(int id) {
+	public ResponseEntity<Void> deletePetType(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
