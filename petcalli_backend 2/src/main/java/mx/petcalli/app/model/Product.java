@@ -17,10 +17,9 @@ public class Product {
  @Column( name = "brand", length = 45, nullable = false )
  private String brand; 
  
- /* @ManyToOne
- @JoinColumn( name = "petType", referencedColumnName = "id")
- @JsonIgnoreProperties({"petType", "description"})
- private PetType petType; */
+ @OneToOne
+ @JoinColumn( name = "petType")
+ private PetType petType; 
  
  @Column( name = "image", length = 300, nullable = false )
  private String image;
@@ -31,11 +30,9 @@ public class Product {
  @Column ( name = "description", length = 500, nullable = false )
  private String description; 
  
- /*
- @ManyToOne
- @JoinColumn( name = "productCategory", referencedColumnName = "id")
- @JsonIgnoreProperties ({"name"})
- private ProductCategory productCategory; */
+ @OneToOne
+ @JoinColumn( name = "productCategory")
+ private ProductCategory productCategory; 
  
  @Column( name = "color", length = 45, nullable = true )
  private String color; 
