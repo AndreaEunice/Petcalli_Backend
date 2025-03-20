@@ -2,10 +2,13 @@ package mx.petcalli.app.service.impl;
 
 import java.util.Set;
 
+import org.springframework.stereotype.Service;
+
 import mx.petcalli.app.model.Role;
 import mx.petcalli.app.repository.RoleRepository;
 import mx.petcalli.app.service.RoleService;
 
+@Service
 public class RoleServiceImpl implements RoleService{
 
 	private final RoleRepository roleRepository;
