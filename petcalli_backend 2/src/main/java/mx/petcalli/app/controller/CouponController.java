@@ -6,7 +6,7 @@ import mx.petcalli.app.model.Coupon;
 public interface CouponController {
 
 	// Controlar la respuesta a 200, 201, 404
-		ResponseEntity<Coupon> getCouponByIdUsynResponEntity(Integer id);
+		ResponseEntity<Coupon> getCouponById(Integer id);
 		
 		//Obtener todos los cupones 
 		ResponseEntity< Iterable <Coupon> > getAllCoupon();

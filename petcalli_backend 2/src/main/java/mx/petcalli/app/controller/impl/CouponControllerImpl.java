@@ -28,7 +28,7 @@ public class CouponControllerImpl implements CouponController {
 	
 	@Override
 	@GetMapping("{id}")
-	public ResponseEntity<Coupon> getCouponByIdUsynResponEntity(Integer id) {
+	public ResponseEntity<Coupon> getCouponById(@PathVariable("id") Integer id) {
 		return ResponseEntity.ok(couponService.getCouponById(id));
 	}
 
