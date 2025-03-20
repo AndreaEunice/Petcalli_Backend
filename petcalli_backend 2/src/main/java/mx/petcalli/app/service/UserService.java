@@ -1,5 +1,7 @@
 package mx.petcalli.app.service;
 
+import java.util.Optional;
+
 import mx.petcalli.app.model.User;
 
 public interface UserService {
