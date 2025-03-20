@@ -7,6 +7,7 @@ import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
+import jakarta.persistence.OptimisticLockException;
 import mx.petcalli.app.model.PetType;
 import mx.petcalli.app.repository.PetTypeRepository;
 import mx.petcalli.app.service.PetTypeService;
@@ -21,13 +22,17 @@ public class PetTypeServiceImpl implements PetTypeService {
 	}
 	@Override
 	public PetType createPetType(PetType petType) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<PetType> optionalPetType = petTypeRepository.findById(petType.getId());
+		if(optionalPetType.isPresent()) {
+			throw new OptimisticLockException("Ya existe esta categoria");
+		}
+		petType.setId(null);
+		PetType nuevaPetType = petTypeRepository.save(petType);
+		return nuevaPetType;
 	}
 
 	@Override
 	public PetType getPetTypeById(int id) {
-		// TODO Auto-generated method stub
 		Optional<PetType> optionalPetType = petTypeRepository.findById(id);
 		if(optionalPetType.isEmpty()) {
 			throw new IllegalStateException("PetType doesnt exist with this id");
@@ -39,20 +44,22 @@ public class PetTypeServiceImpl implements PetTypeService {
 
 	@Override
 	public PetType updatePetType(PetType petType, int id) {
-		// TODO Auto-generated method stub
-		return null;
+		PetType existingPetType = getPetTypeById(id);
+		existingPetType.setPetType(petType.getPetType());
+		existingPetType.setDescription(petType.getDescription());
+		
+		return petTypeRepository.save(existingPetType);
+		
 	}
 
 	@Override
 	public Set<PetType> getAllPetTypes() {
-		// TODO Auto-generated method stub
 		Iterable<PetType> petTypesIterable = petTypeRepository.findAll();
 		return new LinkedHashSet<>((Collection<PetType>)petTypesIterable);
 	}
 
 	@Override
 	public void deletePetType(int id) {
-		// TODO Auto-generated method stub
 		
 	}
 	

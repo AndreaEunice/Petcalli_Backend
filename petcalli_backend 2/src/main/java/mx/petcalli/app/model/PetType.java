@@ -16,6 +16,8 @@ public class PetType  {
 
 	@Column(name = "description", length=255, nullable = false)
 	private String description;
+	@Version
+    private Long version;
 	
 	PetType(){
 		
