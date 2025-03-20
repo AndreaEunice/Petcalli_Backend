@@ -38,6 +38,8 @@ public class RoleControllerImpl implements RoleController {
 		return ResponseEntity.ok(roleService.getAllRoles());
 	}
 
+	
+	
 	@Override
 	@PostMapping
 	public ResponseEntity<Role> createRole(@RequestBody Role newRole) {
