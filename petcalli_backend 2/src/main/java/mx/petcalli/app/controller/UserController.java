@@ -1,25 +1,19 @@
-/*package mx.petcalli.app.controller;
+package mx.petcalli.app.controller;
 
+import org.springframework.http.ResponseEntity;
 
-@CrossOrigin(origins = "*")
-@RestController
-@RequestMapping("/api/v1/Users")
-public class UserController {
-	UserService userService;
+import mx.petcalli.app.model.User;
+
+public interface UserController {
 	
-	public UserController(UserService userService) {
-		this.userService = userService;
-	}
-@GetMapping
-Page<User> getAllUsers(
-		@RequestParam(
-				name="active",
-				required=false,
-				defaultValue = "true"
-				) boolean is Active,
-		
-		
-		)
+	ResponseEntity<User> getUserById(Integer id);
+
+	ResponseEntity<User> createUser(User newUser);
+
+    ResponseEntity<Iterable<User>> getAllUsers();
+
+    ResponseEntity<User> updateUser(User user,Integer id);
+
+    ResponseEntity<Void> deleteUser(Integer id);
 	
 }
-*/
