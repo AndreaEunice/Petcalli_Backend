@@ -69,7 +69,7 @@ public class ProductControllerImpl implements ProductController {
 
  @Override
  @DeleteMapping("{id}")
- public ResponseEntity<Void> deleteProduct(int id) {
+ public ResponseEntity<Void> deleteProduct(@PathVariable("id") int id) {
   productService.deleteProduct(id);
   return ResponseEntity.noContent().build();
  }
