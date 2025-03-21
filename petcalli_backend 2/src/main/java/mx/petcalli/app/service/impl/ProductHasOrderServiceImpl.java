@@ -1,5 +1,7 @@
 package mx.petcalli.app.service.impl;
 
+import org.springframework.stereotype.Service;
+
 import mx.petcalli.app.model.Order;
 import mx.petcalli.app.model.ProductHasOrder;
 import mx.petcalli.app.model.embedded.ProductOrderKey;
@@ -7,6 +9,7 @@ import mx.petcalli.app.repository.ProductHasOrderRepository;
 import mx.petcalli.app.service.OrderService;
 import mx.petcalli.app.service.ProductHasOrderService;
 
+@Service
 public class ProductHasOrderServiceImpl implements ProductHasOrderService{
 
 	ProductHasOrderRepository productHasOrderRepository;
@@ -68,13 +71,9 @@ public class ProductHasOrderServiceImpl implements ProductHasOrderService{
 	    productHasOrderRepository.deleteById(new ProductOrderKey(productId, orderId));
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
+	@Override
+	public Iterable<ProductHasOrder> getAllProductHasOrder() {
+		return productHasOrderRepository.findAll();
+	} 	
 	
 }

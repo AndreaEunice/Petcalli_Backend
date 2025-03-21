@@ -2,15 +2,17 @@ package mx.petcalli.app.controller.impl;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import mx.petcalli.app.controller.ProductHasOrderController;
-import mx.petcalli.app.model.Address;
 import mx.petcalli.app.model.ProductHasOrder;
 import mx.petcalli.app.service.ProductHasOrderService;
 
@@ -33,16 +35,19 @@ public class ProductHasOrderControllerImpl implements ProductHasOrderController{
 	}
 
 	@Override
+	@GetMapping
 	public ResponseEntity<Iterable<ProductHasOrder>> getAllProductHasOrder() {
-		// TODO Auto-generated method stub
-		return null;
+		Iterable<ProductHasOrder> productHasOrders = productHasOrderService.getProductHasOrder();
+		return ResponseEntity.ok(productHasOrders);
 	}
 
 	@Override
-	public ResponseEntity<ProductHasOrder> getProductHasOrderByCompositeId(Long productId, Long orderId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	@GetMapping("/query")
+	public ResponseEntity<ProductHasOrder> getProductHasOrderByCompositeId(@RequestParam(name = "productId") Integer productId,
+			@RequestParam(name = "orderId") Integer orderId) {
+		ProductHasOrder productsHasOrders = productHasOrderService.getProductHasOrderById(productId, orderId);
+		return ResponseEntity.ok(productsHasOrders);
+	} 
 
 	@Override
 	public ResponseEntity<Iterable<ProductHasOrder>> getProductHasOrderByOrderId(Integer orderId) {
@@ -50,25 +55,18 @@ public class ProductHasOrderControllerImpl implements ProductHasOrderController{
 	}
 
 	@Override
-	public ResponseEntity<ProductHasOrder> updateProductHasOrder(ProductHasOrder productHasOrder, Integer productId,Integer orderId) {
-		return ResponseEntity.ok(productHasOrderService.updateProductHasOrder(productHasOrder, productId));
+	@PutMapping("/{productId}/{orderId}")
+	public ResponseEntity<ProductHasOrder> updateProductHasOrder(@RequestBody ProductHasOrder productHasOrder, @PathVariable Integer productId, @PathVariable Integer orderId) {
+	    return ResponseEntity.ok(productHasOrderService.updateProductHasOrderById(productHasOrder, productId, orderId));
 	}
+
 
 	@Override
-	@DeleteMapping("/api/v1/producthasorder") 	public ResponseEntity<Void> deleteProductHasOrderByOrderId(
-	@RequestParam(name = "productId") int productId,
-			@RequestParam(name = "orderId") int orderId
-			) { 
-		productHasOrderService
-		.deleteProductHasOrdertByOrderId(orderId, productId);
-		return ResponseEntity.noContent().build();
+	@DeleteMapping("/{productId}/{orderId}")
+	public ResponseEntity<Void> deleteProductHasOrderByCompositeId(@PathVariable Integer productId, @PathVariable Integer orderId) {
+	    productHasOrderService.deleteProductHasOrderById(orderId, productId);
+	    return ResponseEntity.noContent().build();
 	}
 
-}
-	
-	
-	
-	
-	
-	
+
 }

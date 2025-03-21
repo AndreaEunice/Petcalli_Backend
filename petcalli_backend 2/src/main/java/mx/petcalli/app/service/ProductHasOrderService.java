@@ -9,6 +9,9 @@ public interface ProductHasOrderService {
 	Iterable<ProductHasOrder> getProductHasOrder(); 
 	ProductHasOrder getProductHasOrderById(int productId, int orderId); 
 	Iterable<ProductHasOrder> getProductHasOrderByOrderId(int orderId); 
+	Iterable<ProductHasOrder> getAllProductHasOrder();
 	ProductHasOrder updateProductHasOrderById(ProductHasOrder productHasOrder, int productId, int orderId);
 	void deleteProductHasOrderById(int productId, int orderId);
+
+	
 }
