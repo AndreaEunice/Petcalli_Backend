@@ -75,6 +75,13 @@ public class ProductControllerImpl implements ProductController {
  }
 
 
+@Override
+public ResponseEntity<Product> updateProduct(Product product) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+
 
 
  
