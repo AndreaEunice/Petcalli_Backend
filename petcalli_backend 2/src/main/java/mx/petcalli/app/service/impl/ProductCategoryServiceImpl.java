@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import mx.petcalli.app.model.ProductCategory;
 import mx.petcalli.app.repository.ProductCategoryRepository;
 import mx.petcalli.app.service.ProductCategoryService;
-
 @Service 
 public class ProductCategoryServiceImpl implements ProductCategoryService {
 
