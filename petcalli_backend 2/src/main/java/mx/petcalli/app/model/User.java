@@ -45,6 +45,10 @@ public class User {
 	@JoinColumn( name = "fk_id_role", nullable = true)
 	private Role role;
 	
+	@ManyToOne
+	@JoinColumn( name = "fk_id_address", nullable = true)
+	private Address address;
+	
 	User (){
 		
 	}
@@ -114,26 +118,37 @@ public class User {
 		this.role = role;
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("User [id=");
-		builder.append(id);
-		builder.append(", name=");
-		builder.append(name);
-		builder.append(", lastName=");
-		builder.append(lastName);
-		builder.append(", email=");
-		builder.append(email);
-		builder.append(", telephone=");
-		builder.append(telephone);
-		builder.append(", password=");
-		builder.append(password);
-		builder.append(", role=");
-		builder.append(role);
-		builder.append("]");
-		return builder.toString();
+	public List<Order> getOrders() {
+		return orders;
 	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public User(Integer id, String name, String lastName, String email, String telephone, String password,
+			List<Order> orders, Role role, Address address) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.lastName = lastName;
+		this.email = email;
+		this.telephone = telephone;
+		this.password = password;
+		this.orders = orders;
+		this.role = role;
+		this.address = address;
+	}
+
+	
 
 	
 }
