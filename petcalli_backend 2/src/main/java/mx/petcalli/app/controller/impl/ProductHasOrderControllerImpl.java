@@ -54,19 +54,25 @@ public class ProductHasOrderControllerImpl implements ProductHasOrderController{
 		return ResponseEntity.ok(productHasOrderService.getProductHasOrderByOrderId(orderId));
 	}
 
-	@Override
 	@PutMapping("/{productId}/{orderId}")
-	public ResponseEntity<ProductHasOrder> updateProductHasOrder(@RequestBody ProductHasOrder productHasOrder, @PathVariable Integer productId, @PathVariable Integer orderId) {
+	public ResponseEntity<ProductHasOrder> updateProductHasOrder(
+	        @RequestBody ProductHasOrder productHasOrder,
+	        @PathVariable(name = "productId") Integer productId,
+	        @PathVariable(name = "orderId") Integer orderId) {
 	    return ResponseEntity.ok(productHasOrderService.updateProductHasOrderById(productHasOrder, productId, orderId));
 	}
 
 
-	@Override
+	
 	@DeleteMapping("/{productId}/{orderId}")
-	public ResponseEntity<Void> deleteProductHasOrderByCompositeId(@PathVariable Integer productId, @PathVariable Integer orderId) {
+	public ResponseEntity<Void> deleteProductHasOrderByCompositeId(
+	    @PathVariable("productId") Integer productId,
+	    @PathVariable("orderId") Integer orderId) {
 	    productHasOrderService.deleteProductHasOrderById(orderId, productId);
 	    return ResponseEntity.noContent().build();
 	}
+
+
 
 
 }
