@@ -41,6 +41,7 @@ public class UserControllerImpl implements UserController{
 	 }
 
 	@Override
+	@GetMapping
 	public ResponseEntity<Iterable<User>> getAllUsers() {
 		return ResponseEntity.ok(userService.getAllUsers());
 	}
