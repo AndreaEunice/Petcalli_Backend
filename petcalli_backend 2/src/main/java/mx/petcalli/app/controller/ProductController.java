@@ -16,9 +16,11 @@ public interface ProductController {
  
  ResponseEntity<Product> createProduct(Product product);
  
- ResponseEntity<Product> updateProduct(Product product, int id);
+ ResponseEntity<Product> updateProduct(Product product);
  
  ResponseEntity<Void> deleteProduct(int id);
+
+ResponseEntity<Product> updateProduct(Product product, int id);
 
  
  

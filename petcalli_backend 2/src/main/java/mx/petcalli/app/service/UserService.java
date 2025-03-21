@@ -1,6 +1,5 @@
 package mx.petcalli.app.service;
 
-import java.util.Optional;
 
 import mx.petcalli.app.model.User;
 
@@ -17,4 +16,6 @@ public interface UserService {
 	User updateUser(User user, Integer id);
 	
 	void deleteUser(Integer id);
+
 }
+
