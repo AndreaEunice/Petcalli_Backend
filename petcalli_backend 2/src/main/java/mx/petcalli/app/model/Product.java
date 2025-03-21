@@ -18,7 +18,7 @@ public class Product {
  private String brand; 
  
  @OneToOne
- @JoinColumn( name = "petType")
+ @JoinColumn( name = "fk_id_petType", nullable = true)
  private PetType petType; 
  
  @Column( name = "image", length = 300, nullable = false )
@@ -31,7 +31,7 @@ public class Product {
  private String description; 
  
  @OneToOne
- @JoinColumn( name = "productCategory")
+ @JoinColumn( name = "fk_id_category")
  private ProductCategory productCategory; 
  
  @Column( name = "color", length = 45, nullable = true )
@@ -49,146 +49,142 @@ public class Product {
   super();
   this.title = title;
   this.brand = brand;
-  // this.petType = petType;
   this.image = image;
   this.price = price;
   this.description = description;
-  // this.productCategory = productCategory;
   this.color = color;
   this.size = size;
  }
 
 
- public int getId() {
-  return id;
- }
+public int getId() {
+	return id;
+}
 
 
- public void setId(int id) {
-  this.id = id;
- }
-
- public String getTitle() {
-  return title;
- }
+public void setId(int id) {
+	this.id = id;
+}
 
 
- public void setTitle(String title) {
-  this.title = title;
- }
+public String getTitle() {
+	return title;
+}
 
 
- public String getBrand() {
-  return brand;
- }
+public void setTitle(String title) {
+	this.title = title;
+}
 
 
- public void setBrand(String brand) {
-  this.brand = brand;
- }
+public String getBrand() {
+	return brand;
+}
 
 
- /* public PetType getPetType() {
-  return petType;
- }
+public void setBrand(String brand) {
+	this.brand = brand;
+}
 
 
- public void setPetType(PetType petType) {
-  this.petType = petType;
- } */
+public PetType getPetType() {
+	return petType;
+}
 
 
- public String getImage() {
-  return image;
- }
+public void setPetType(PetType petType) {
+	this.petType = petType;
+}
 
 
- public void setImage(String image) {
-  this.image = image;
- }
+public String getImage() {
+	return image;
+}
 
 
- public Double getPrice() {
-  return price;
- }
+public void setImage(String image) {
+	this.image = image;
+}
 
 
- public void setPrice(Double price) {
-  this.price = price;
- }
+public Double getPrice() {
+	return price;
+}
 
 
- public String getDescription() {
-  return description;
- }
+public void setPrice(Double price) {
+	this.price = price;
+}
 
 
- public void setDescription(String description) {
-  this.description = description;
- }
-
-/*
- public ProductCategory getProductCategory() {
-  return productCategory;
- }
+public String getDescription() {
+	return description;
+}
 
 
- public void setProductCategory(ProductCategory productCategory) {
-  this.productCategory = productCategory;
- }
-*/
-
- public String getColor() {
-  return color;
- }
+public void setDescription(String description) {
+	this.description = description;
+}
 
 
- public void setColor(String color) {
-  this.color = color;
- }
+public ProductCategory getProductCategory() {
+	return productCategory;
+}
 
 
- public String getSize() {
-  return size;
- }
+public void setProductCategory(ProductCategory productCategory) {
+	this.productCategory = productCategory;
+}
 
 
- public void setSize(String size) {
-  this.size = size;
- }
+public String getColor() {
+	return color;
+}
 
 
- @Override
- public String toString() {
-  StringBuilder builder = new StringBuilder();
-  builder.append("Product [id=");
-  builder.append(id);
-  builder.append(", title=");
-  builder.append(title);
-  builder.append(", brand=");
-  builder.append(brand);
-  // builder.append(", petType=");
-  // builder.append(petType);
-  builder.append(", image=");
-  builder.append(image);
-  builder.append(", price=");
-  builder.append(price);
-  builder.append(", description=");
-  builder.append(description);
-  // builder.append(", productCategory=");
-  // builder.append(productCategory);
-  builder.append(", color=");
-  builder.append(color);
-  builder.append(", size=");
-  builder.append(size);
-  builder.append("]");
-  return builder.toString();
- }
+public void setColor(String color) {
+	this.color = color;
+}
 
 
- 
- 
+public String getSize() {
+	return size;
+}
+
+
+public void setSize(String size) {
+	this.size = size;
+}
+
+
+@Override
+public String toString() {
+	StringBuilder builder = new StringBuilder();
+	builder.append("Product [id=");
+	builder.append(id);
+	builder.append(", title=");
+	builder.append(title);
+	builder.append(", brand=");
+	builder.append(brand);
+	builder.append(", petType=");
+	builder.append(petType);
+	builder.append(", image=");
+	builder.append(image);
+	builder.append(", price=");
+	builder.append(price);
+	builder.append(", description=");
+	builder.append(description);
+	builder.append(", productCategory=");
+	builder.append(productCategory);
+	builder.append(", color=");
+	builder.append(color);
+	builder.append(", size=");
+	builder.append(size);
+	builder.append("]");
+	return builder.toString();
+}
  
  
  
 }
+
