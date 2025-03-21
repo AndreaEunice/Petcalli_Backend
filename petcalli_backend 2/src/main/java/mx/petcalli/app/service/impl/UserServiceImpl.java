@@ -1,14 +1,10 @@
 package mx.petcalli.app.service.impl;
 
 import java.util.Optional;
-
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import mx.petcalli.app.model.User;
 import mx.petcalli.app.repository.UserRepository;
-import mx.petcalli.app.service.RoleService;
 import mx.petcalli.app.service.UserService;
 
 
@@ -107,6 +103,7 @@ public class UserServiceImpl implements UserService {
                 throw new RuntimeException("Error al actualizar el usuario");
             }
 	}
+	
 	@Override
 	public void deleteUser(Integer id) {
 		if (id == null || id <= 0) {
@@ -118,8 +115,5 @@ public class UserServiceImpl implements UserService {
 		} else{
 			throw new IllegalStateException("El usuario no existe");
 		}
-		
 	}
-
-	
-}  */
+}
