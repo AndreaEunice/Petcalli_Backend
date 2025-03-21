@@ -1,17 +1,10 @@
-/* package mx.petcalli.app.service.impl;
+package mx.petcalli.app.service.impl;
 
 import java.util.Optional;
-
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import mx.petcalli.app.model.User;
-//import mx.petcalli.app.model.Role;
 import mx.petcalli.app.repository.UserRepository;
-import mx.petcalli.app.service.RoleService;
-//import mx.petcalli.app.service.RoleService;
 import mx.petcalli.app.service.UserService;
 
 
@@ -21,20 +14,14 @@ public class UserServiceImpl implements UserService {
 	
 	
 	private final UserRepository userRepository;
-	private final PasswordEncoder passwordEncoder;
-	//private final RoleService roleService;
-	//private final RoleService roleService;
 	
-	public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+	public UserServiceImpl(UserRepository userRepository) {
 		this.userRepository = userRepository;
-		this.passwordEncoder = passwordEncoder;
-		//this.roleService = roleService;	
 	}
 
 	@Override
 	public User createUser(User user) {
 		user.setId(null);
-		user.setPassword( passwordEncoder.encode( user.getPassword()));
         return userRepository.save(user);
 	}
 
@@ -70,13 +57,13 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getUserByEmail(String email) {
-		Iterable<User> existingUserByEmail = userRepository.findByEmail(email);
-		for (User user : existingUserByEmail) {
-            return user;
+		Optional<User> existingUserByEmail = userRepository.findByEmail(email);
+		if( existingUserByEmail.isEmpty()) {
+            throw new IllegalStateException("Customer does not exist with email " + email);
         }
-        throw new IllegalStateException("User no existe con el email " + email);	
+        return existingUserByEmail.get();
 	}
-
+	
 	@Override
 	public User getUserByTelephone(String telephone) {
         Iterable<User> telephones = userRepository.findByTelephone(telephone);
@@ -116,6 +103,7 @@ public class UserServiceImpl implements UserService {
                 throw new RuntimeException("Error al actualizar el usuario");
             }
 	}
+	
 	@Override
 	public void deleteUser(Integer id) {
 		if (id == null || id <= 0) {
@@ -127,8 +115,9 @@ public class UserServiceImpl implements UserService {
 		} else{
 			throw new IllegalStateException("El usuario no existe");
 		}
-		
 	}
 
+
 	
-}  */
+} 
+

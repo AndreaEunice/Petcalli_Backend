@@ -27,6 +27,10 @@ public class Coupon  {
 	@Column(name = "discount", nullable = false)
 	private Double discount;
 	
+	@ManyToOne
+	@JoinColumn(name = "fk_id_order", nullable = true)
+	private Order order;
+	
 	Coupon(){
 		
 	}
@@ -88,6 +92,16 @@ public class Coupon  {
 	public void setDiscount(Double discount) {
 		this.discount = discount;
 	}
+	
+	
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
 
 	@Override
 	public String toString() {
@@ -104,9 +118,13 @@ public class Coupon  {
 		builder.append(purchaseLimit);
 		builder.append(", discount=");
 		builder.append(discount);
+		builder.append(", order=");
+		builder.append(order);
 		builder.append("]");
 		return builder.toString();
 	}
+
+	
 	
 	
 	

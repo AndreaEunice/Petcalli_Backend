@@ -10,7 +10,6 @@ import mx.petcalli.app.model.User;
 import mx.petcalli.app.repository.UserRepository;
 
 @Component
-@Order(2)
 public class UserDataLoader implements CommandLineRunner{
         @Autowired
       UserRepository userRepository;

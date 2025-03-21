@@ -1,4 +1,4 @@
-/*package mx.petcalli.app.security;
+package mx.petcalli.app.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,11 +32,11 @@ public class WebSecurityConfig {
 				.authorizeHttpRequests( authorize -> authorize
 						.requestMatchers("/", "index.html", "/assets/**").permitAll()
 						.requestMatchers(HttpMethod.POST, "/api/v1/users").permitAll()
-						.requestMatchers(HttpMethod.GET, "/api/v1/products","/api/v1/products/**").permitAll()
-						.requestMatchers("/api/v1/users", "/api/v1/roles/**").hasRole("ADMIN")
+						.requestMatchers(HttpMethod.GET, "/api/v1/products","/api/v1/products/**", "/api/v1/users").permitAll()
+						.requestMatchers("/api/v1/users", "/api/v1/roles/**").hasRole("ADMINISTRADOR")
 						.requestMatchers("/api/v1/users/**",
 										"/api/v1/order-has-products/**"
-								).hasAnyRole("ADMIN","CUSTOMER")
+								).hasAnyRole("ADMINISTRADOR","CLIENTE")
 						.anyRequest().authenticated()						
 						)
 				.csrf( csrf-> csrf.disable() )
@@ -63,4 +63,3 @@ public class WebSecurityConfig {
 			}
 }
 
-*/
