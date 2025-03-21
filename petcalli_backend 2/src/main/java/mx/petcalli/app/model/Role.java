@@ -1,5 +1,7 @@
 package mx.petcalli.app.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -18,7 +20,10 @@ public class Role  {
         @Column(name = "description", length= 300, nullable = false)
 	private String description;
         
-     
+        
+       //@OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
+        //private List<User> usuarios;
+
       Role() {
     	  
       }

@@ -42,7 +42,7 @@ public class User {
     private List<Order> orders;
 	
 	@ManyToOne
-	@JoinColumn( name = "fk_id_role", nullable = true)
+	@JoinColumn( name = "role_id", nullable = true)
 	private Role role;
 	
 	User (){
