@@ -50,15 +50,6 @@ public void setId(Integer id) {
  this.id = id;
 }
 
-
-public User getUser() {
-	return user;
-}
-
-public void setUser(User user) {
-	this.user = user;
-}
-
 public String getStreet() {
  return street;
 }
@@ -104,8 +95,6 @@ public String toString() {
 	StringBuilder builder = new StringBuilder();
 	builder.append("Address [id=");
 	builder.append(id);
-	builder.append(", user=");
-	builder.append(user);
 	builder.append(", street=");
 	builder.append(street);
 	builder.append(", city=");

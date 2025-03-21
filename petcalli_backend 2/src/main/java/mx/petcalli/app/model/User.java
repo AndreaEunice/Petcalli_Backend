@@ -45,6 +45,10 @@ public class User {
 	@JoinColumn( name = "role_id", nullable = true)
 	private Role role;
 	
+	@ManyToOne
+	@JoinColumn( name = "fk_id_user", nullable = true)
+	private Address address;
+	
 	User (){
 		
 	}
@@ -106,6 +110,14 @@ public class User {
 		this.password = password;
 	}
 	
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+
 	public Role getRole() {
 		return role;
 	}
@@ -113,26 +125,28 @@ public class User {
 	public void setRole(Role role) {
 		this.role = role;
 	}
+	
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("User [id=");
-		builder.append(id);
-		builder.append(", name=");
-		builder.append(name);
-		builder.append(", lastName=");
-		builder.append(lastName);
-		builder.append(", email=");
-		builder.append(email);
-		builder.append(", telephone=");
-		builder.append(telephone);
-		builder.append(", password=");
-		builder.append(password);
-		builder.append(", role=");
-		builder.append(role);
-		builder.append("]");
-		return builder.toString();
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public User(Integer id, String name, String lastName, String email, String telephone, String password,
+			List<Order> orders, Role role, Address address) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.lastName = lastName;
+		this.email = email;
+		this.telephone = telephone;
+		this.password = password;
+		this.orders = orders;
+		this.role = role;
+		this.address = address;
 	}
 
 	
