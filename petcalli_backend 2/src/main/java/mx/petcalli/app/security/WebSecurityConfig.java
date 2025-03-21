@@ -32,7 +32,7 @@ public class WebSecurityConfig {
 				.authorizeHttpRequests( authorize -> authorize
 						.requestMatchers("/", "index.html", "/assets/**").permitAll()
 						.requestMatchers(HttpMethod.POST, "/api/v1/users").permitAll()
-						.requestMatchers(HttpMethod.GET, "/api/v1/products","/api/v1/products/**").permitAll()
+						.requestMatchers(HttpMethod.GET, "/api/v1/products","/api/v1/products/**", "/api/v1/users").permitAll()
 						.requestMatchers("/api/v1/users", "/api/v1/roles/**").hasRole("ADMINISTRADOR")
 						.requestMatchers("/api/v1/users/**",
 										"/api/v1/order-has-products/**"

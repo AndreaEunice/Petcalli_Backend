@@ -26,9 +26,10 @@ import mx.petcalli.app.model.User;
 		public Collection<? extends GrantedAuthority> getAuthorities() {
 			List<GrantedAuthority> authorities = new ArrayList<>();
 			//Tenemos que evaluar el tipo de relacion many to many o many to one 
-			for( Role role : user.getRoles() ) {
-				authorities.add( new SimpleGrantedAuthority("ROLE_" + role.getRole().toUpperCase() ));
-			}
+			//for( Role role : user.getRoles() ) {
+			//Role role;
+			authorities.add( new SimpleGrantedAuthority("ROLE_" + user.getRole() ));
+			//}
 			
 			return authorities;
 		}
