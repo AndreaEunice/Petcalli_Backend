@@ -19,11 +19,11 @@ public class UserServiceImpl implements UserService {
 		this.userRepository = userRepository;
 	}
 
-	@Override
-	public User createUser(User user) {
-		user.setId(null);
-        return userRepository.save(user);
-	}
+	
+	    public User createUser(User newUser) {
+	        return userRepository.save(newUser);
+	    }
+	
 
 	@Override
 	public Iterable<User> getAllUsers() {

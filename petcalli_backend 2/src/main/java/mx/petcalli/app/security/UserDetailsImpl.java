@@ -1,4 +1,4 @@
-package mx.petcalli.app.security;
+/*package mx.petcalli.app.security;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -45,3 +45,4 @@ import mx.petcalli.app.model.User;
 		}
 		
 	}
+*/
