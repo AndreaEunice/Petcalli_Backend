@@ -1,17 +1,14 @@
-/* package mx.petcalli.app.service.impl;
+package mx.petcalli.app.service.impl;
 
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import mx.petcalli.app.model.User;
-//import mx.petcalli.app.model.Role;
 import mx.petcalli.app.repository.UserRepository;
 import mx.petcalli.app.service.RoleService;
-//import mx.petcalli.app.service.RoleService;
 import mx.petcalli.app.service.UserService;
 
 
@@ -21,20 +18,14 @@ public class UserServiceImpl implements UserService {
 	
 	
 	private final UserRepository userRepository;
-	private final PasswordEncoder passwordEncoder;
-	//private final RoleService roleService;
-	//private final RoleService roleService;
 	
-	public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+	public UserServiceImpl(UserRepository userRepository) {
 		this.userRepository = userRepository;
-		this.passwordEncoder = passwordEncoder;
-		//this.roleService = roleService;	
 	}
 
 	@Override
 	public User createUser(User user) {
 		user.setId(null);
-		user.setPassword( passwordEncoder.encode( user.getPassword()));
         return userRepository.save(user);
 	}
 
