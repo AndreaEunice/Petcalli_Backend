@@ -11,7 +11,7 @@ public class Address {
  private Integer id; 
 
  @ManyToOne 
- @JoinColumn(name = "fkUsersId")
+ @JoinColumn(name = "fk_id_user", nullable = true)
  private User user;
 
  @Column(name = "street", length = 300, nullable = false)
@@ -50,13 +50,14 @@ public void setId(Integer id) {
  this.id = id;
 }
 
-/*public Integer getFkUsersId() {
- return fkUsersId;
+
+public User getUser() {
+	return user;
 }
 
-public void setFkUsersId(Integer fkUsersId) {
- this.fkUsersId = fkUsersId;
-}*/
+public void setUser(User user) {
+	this.user = user;
+}
 
 public String getStreet() {
  return street;
@@ -100,24 +101,26 @@ public void setCountry(String country) {
 
 @Override
 public String toString() {
- StringBuilder builder = new StringBuilder();
- builder.append("Address [id=");
- builder.append(id);
- /*builder.append(", fkUsersId=");
- builder.append(fkUsersId);*/
- builder.append(", street=");
- builder.append(street);
- builder.append(", city=");
- builder.append(city);
- builder.append(", state=");
- builder.append(state);
- builder.append(", zip=");
- builder.append(zip);
- builder.append(", country=");
- builder.append(country);
- builder.append("]");
- return builder.toString();
+	StringBuilder builder = new StringBuilder();
+	builder.append("Address [id=");
+	builder.append(id);
+	builder.append(", user=");
+	builder.append(user);
+	builder.append(", street=");
+	builder.append(street);
+	builder.append(", city=");
+	builder.append(city);
+	builder.append(", state=");
+	builder.append(state);
+	builder.append(", zip=");
+	builder.append(zip);
+	builder.append(", country=");
+	builder.append(country);
+	builder.append("]");
+	return builder.toString();
 }
+
+
 
  
 
