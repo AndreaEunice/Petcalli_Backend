@@ -1,4 +1,4 @@
-package mx.petcalli.app.security;
+/*package mx.petcalli.app.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,16 +25,16 @@ public class WebSecurityConfig {
 	public static void main(String[] args) {
 		System.out.println( new BCryptPasswordEncoder().encode("123")  );
 	}
-	@Bean
+	
+	/*@Bean
 	SecurityFilterChain filterChain( HttpSecurity http) throws Exception {
 
 		return http
 				.authorizeHttpRequests( authorize -> authorize
-						.requestMatchers("/", "index.html", "/assets/**").permitAll()
 						.requestMatchers(HttpMethod.POST, "/api/v1/users").permitAll()
 						.requestMatchers(HttpMethod.GET, "/api/v1/products","/api/v1/products/**", "/api/v1/users").permitAll()
-						.requestMatchers("/api/v1/users", "/api/v1/roles/**").hasRole("ADMINISTRADOR")
-						.requestMatchers("/api/v1/users/**",
+						.requestMatchers ("/api/v1/roles/**").hasRole("ADMINISTRADOR")
+						.requestMatchers(
 										"/api/v1/order-has-products/**"
 								).hasAnyRole("ADMINISTRADOR","CLIENTE")
 						.anyRequest().authenticated()						
@@ -44,6 +44,17 @@ public class WebSecurityConfig {
 				.build();
 		
 		}
+    @Bean
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests(auth -> auth
+                .anyRequest().permitAll() // Permitir todas las solicitudes sin autenticación
+            )
+            .csrf(csrf -> csrf.disable()); // Opcional: Desactivar CSRF si no estás usando formularios
+
+        return http.build();
+    }
+
 	@Bean
 		AuthenticationManager authManager(
             HttpSecurity httpSecurity,
@@ -63,3 +74,4 @@ public class WebSecurityConfig {
 			}
 }
 
+*/

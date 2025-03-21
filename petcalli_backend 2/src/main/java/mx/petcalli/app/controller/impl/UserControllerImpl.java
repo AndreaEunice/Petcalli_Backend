@@ -34,13 +34,16 @@ public class UserControllerImpl implements UserController{
 	  return ResponseEntity.ok(userService.getUserById(id));
 	 }
 
+
 	@Override
 	 @PostMapping
 	 public ResponseEntity<User> createUser(@RequestBody User newUser) {
 	  return ResponseEntity.status(201).body(userService.createUser(newUser));
 	 }
 
+
 	@Override
+	@GetMapping
 	public ResponseEntity<Iterable<User>> getAllUsers() {
 		return ResponseEntity.ok(userService.getAllUsers());
 	}
