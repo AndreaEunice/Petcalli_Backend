@@ -1,5 +1,7 @@
 package mx.petcalli.app.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
@@ -9,7 +11,7 @@ public interface UserRepository extends CrudRepository<User, Integer>, PagingAnd
 	
 	Iterable<User> findByName(String name);
 	Iterable<User> findByLastName(String lastName);
-	Iterable<User> findByEmail(String email);
+	Optional<User> findByEmail(String email);
 	Iterable<User> findByTelephone(String telephone);
 	Iterable<User> findByPassword(String password);
 

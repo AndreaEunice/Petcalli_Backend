@@ -57,13 +57,13 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getUserByEmail(String email) {
-		Iterable<User> existingUserByEmail = userRepository.findByEmail(email);
-		for (User user : existingUserByEmail) {
-            return user;
+		Optional<User> existingUserByEmail = userRepository.findByEmail(email);
+		if( existingUserByEmail.isEmpty()) {
+            throw new IllegalStateException("Customer does not exist with email " + email);
         }
-        throw new IllegalStateException("User no existe con el email " + email);	
+        return existingUserByEmail.get();
 	}
-
+	
 	@Override
 	public User getUserByTelephone(String telephone) {
         Iterable<User> telephones = userRepository.findByTelephone(telephone);
@@ -116,4 +116,8 @@ public class UserServiceImpl implements UserService {
 			throw new IllegalStateException("El usuario no existe");
 		}
 	}
-}
+
+
+	
+} 
+

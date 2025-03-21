@@ -1,4 +1,4 @@
-/*package mx.petcalli.app.security;
+package mx.petcalli.app.security;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -25,10 +25,11 @@ import mx.petcalli.app.model.User;
 		@Override
 		public Collection<? extends GrantedAuthority> getAuthorities() {
 			List<GrantedAuthority> authorities = new ArrayList<>();
-			
-			for( Role role : user.getRoles() ) {
-				authorities.add( new SimpleGrantedAuthority("ROLE_" + role.getRole().toUpperCase() ));
-			}
+			//Tenemos que evaluar el tipo de relacion many to many o many to one 
+			//for( Role role : user.getRoles() ) {
+			//Role role;
+			authorities.add( new SimpleGrantedAuthority("ROLE_" + user.getRole() ));
+			//}
 			
 			return authorities;
 		}
@@ -43,4 +44,4 @@ import mx.petcalli.app.model.User;
 			return user.getEmail();
 		}
 		
-	}*/
+	}
