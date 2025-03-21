@@ -1,6 +1,5 @@
 package mx.petcalli.app.service;
 
-
 import mx.petcalli.app.model.Vendor;
 
 public interface VendorService {

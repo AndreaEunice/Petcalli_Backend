@@ -1,14 +1,16 @@
-package mx.petcalli.app.service.impl;
+/* package mx.petcalli.app.service.impl;
 
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import mx.petcalli.app.model.User;
 //import mx.petcalli.app.model.Role;
 import mx.petcalli.app.repository.UserRepository;
+import mx.petcalli.app.service.RoleService;
 //import mx.petcalli.app.service.RoleService;
 import mx.petcalli.app.service.UserService;
 
@@ -16,17 +18,23 @@ import mx.petcalli.app.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 	
+	
+	
 	private final UserRepository userRepository;
+	private final PasswordEncoder passwordEncoder;
+	//private final RoleService roleService;
 	//private final RoleService roleService;
 	
-	public UserServiceImpl(UserRepository userRepository) {
+	public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
 		this.userRepository = userRepository;
+		this.passwordEncoder = passwordEncoder;
 		//this.roleService = roleService;	
 	}
 
 	@Override
 	public User createUser(User user) {
 		user.setId(null);
+		user.setPassword( passwordEncoder.encode( user.getPassword()));
         return userRepository.save(user);
 	}
 
@@ -91,7 +99,7 @@ public class UserServiceImpl implements UserService {
         } if (user == null) {
             throw new IllegalArgumentException("El objeto User no puede ser nulo");
         }
-        User existingUser = getUserById(id) .orElseThrow(() -> new RuntimeException("Usuario no encontrado con ID: " + id));
+        User existingUser = getUserById(id);
         if(user.getName() != null) {
             existingUser.setName(user.getName() );
             } if (user.getLastName() != null) {
@@ -107,12 +115,20 @@ public class UserServiceImpl implements UserService {
             } catch (Exception e) {
                 throw new RuntimeException("Error al actualizar el usuario");
             }
-        }
+	}
 	@Override
 	public void deleteUser(Integer id) {
-		// TODO Auto-generated method stub
+		if (id == null || id <= 0) {
+			throw new IllegalStateException("Id no valido");
+		}
+		Optional<User>  userOptional = userRepository.findById(id);
+		if (userOptional.isPresent()) {
+			userRepository.deleteById(id);
+		} else{
+			throw new IllegalStateException("El usuario no existe");
+		}
 		
 	}
 
 	
-}
+}  */

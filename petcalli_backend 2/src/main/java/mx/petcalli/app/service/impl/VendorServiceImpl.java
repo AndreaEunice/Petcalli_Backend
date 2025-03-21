@@ -1,8 +1,6 @@
 package mx.petcalli.app.service.impl;
 
-import java.util.Set;
 
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 
@@ -22,8 +20,6 @@ public class VendorServiceImpl implements VendorService {
 	
 	@Override
 	public  Vendor createVendor(Vendor vendor) {
-		vendor.setId(null);
-		vendor.setUserName(vendor.getUserName());
 		return vendorRepository.save(vendor);
 	}
 
