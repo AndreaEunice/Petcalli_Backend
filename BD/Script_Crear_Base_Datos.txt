@@ -1,0 +1,214 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema petcalli
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema petcalli
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `petcalli` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `petcalli` ;
+
+-- -----------------------------------------------------
+-- Table `petcalli`.`role`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `petcalli`.`role` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `client` TINYINT NOT NULL,
+  `vendor` BIT(1) NOT NULL,
+  `guest` TINYINT NOT NULL,
+  `Description` VARCHAR(300) CHARACTER SET 'utf8mb3' NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 7
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `petcalli`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `petcalli`.`users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `lastName` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(50) NOT NULL,
+  `telephone` VARCHAR(50) NOT NULL,
+  `password` VARCHAR(50) NOT NULL,
+  `fk_id_role` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
+  UNIQUE INDEX `userscol_UNIQUE` (`telephone` ASC) VISIBLE,
+  INDEX `fk_users_rol1_idx` (`fk_id_role` ASC) VISIBLE,
+  CONSTRAINT `fk_users_rol1`
+    FOREIGN KEY (`fk_id_role`)
+    REFERENCES `petcalli`.`role` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 8
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `petcalli`.`address`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `petcalli`.`address` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `fk_id_user` INT NOT NULL,
+  `street` VARCHAR(300) CHARACTER SET 'utf8mb3' NOT NULL,
+  `city` VARCHAR(100) NOT NULL,
+  `state` VARCHAR(100) NOT NULL,
+  `zip` INT NOT NULL,
+  `country` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id`, `fk_id_user`),
+  INDEX `fk_id_users_idx` (`fk_id_user` ASC) VISIBLE,
+  CONSTRAINT `fk_id_users`
+    FOREIGN KEY (`fk_id_user`)
+    REFERENCES `petcalli`.`users` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `petcalli`.`coupon`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `petcalli`.`coupon` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `start_valid_date` DATE NOT NULL,
+  `end_valid_date` DATE NOT NULL,
+  `code` DECIMAL(5,2) NOT NULL,
+  `purchase_limit` DECIMAL(10,2) NOT NULL,
+  `discount` DECIMAL(5,2) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `petcalli`.`orders`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `petcalli`.`orders` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `fk_id_user` INT NOT NULL,
+  `amount_products` INT NOT NULL,
+  `date_time_order` DATETIME NOT NULL,
+  `total_price` DECIMAL(10,2) NOT NULL,
+  `payment_method` VARCHAR(50) NOT NULL,
+  `fk_id_coupons` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_id_user_idx` (`fk_id_user` ASC) VISIBLE,
+  INDEX `fk_orders_coupons1_idx` (`fk_id_coupons` ASC) VISIBLE,
+  CONSTRAINT `fk_id_user`
+    FOREIGN KEY (`fk_id_user`)
+    REFERENCES `petcalli`.`users` (`id`),
+  CONSTRAINT `fk_orders_coupons1`
+    FOREIGN KEY (`fk_id_coupons`)
+    REFERENCES `petcalli`.`coupon` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `petcalli`.`pettype`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `petcalli`.`pettype` (
+  `Id` INT NOT NULL AUTO_INCREMENT,
+  `pet_type` VARCHAR(100) NOT NULL,
+  `description` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`Id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `petcalli`.`productscategory`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `petcalli`.`productscategory` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 6
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `petcalli`.`products`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `petcalli`.`products` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(200) NOT NULL,
+  `brand` VARCHAR(45) NOT NULL,
+  `fk_id_petType` INT NOT NULL,
+  `image` VARCHAR(300) NOT NULL,
+  `price` DECIMAL(10,2) NOT NULL,
+  `description` VARCHAR(500) NOT NULL,
+  `fk_id_category` INT NOT NULL,
+  `color` VARCHAR(45) NULL DEFAULT NULL,
+  `size` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_id_category_idx` (`fk_id_category` ASC) VISIBLE,
+  INDEX `fk_id_petType_idx` (`fk_id_petType` ASC) VISIBLE,
+  CONSTRAINT `fk_id_category`
+    FOREIGN KEY (`fk_id_category`)
+    REFERENCES `petcalli`.`productscategory` (`id`),
+  CONSTRAINT `fk_id_petType`
+    FOREIGN KEY (`fk_id_petType`)
+    REFERENCES `petcalli`.`pettype` (`Id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `petcalli`.`products_has_orders`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `petcalli`.`products_has_orders` (
+  `id` INT NOT NULL,
+  `fk_products_id` INT NOT NULL,
+  `fk_orders_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `fk_orders_id`),
+  INDEX `fk_Products_has_orders_Products1_idx` (`fk_products_id` ASC) VISIBLE,
+  INDEX `fk_orders_id_idx` (`fk_orders_id` ASC) VISIBLE,
+  CONSTRAINT `fk_orders_id`
+    FOREIGN KEY (`fk_orders_id`)
+    REFERENCES `petcalli`.`orders` (`id`),
+  CONSTRAINT `fk_products_id`
+    FOREIGN KEY (`fk_products_id`)
+    REFERENCES `petcalli`.`products` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `petcalli`.`vendor`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `petcalli`.`vendor` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `fk_id_users` INT NOT NULL,
+  `name_store` VARCHAR(45) NOT NULL,
+  `rfc` VARCHAR(45) NOT NULL,
+  `url` VARCHAR(300) CHARACTER SET 'utf8mb3' NOT NULL,
+  `store_description` VARCHAR(300) CHARACTER SET 'utf8mb3' NOT NULL,
+  `terms&conditions_url` VARCHAR(300) CHARACTER SET 'utf8mb3' NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_Vendor_users1_idx` (`fk_id_users` ASC) VISIBLE,
+  CONSTRAINT `fk_Vendor_users1`
+    FOREIGN KEY (`fk_id_users`)
+    REFERENCES `petcalli`.`users` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
