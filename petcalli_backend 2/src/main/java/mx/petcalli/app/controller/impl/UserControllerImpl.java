@@ -1,5 +1,6 @@
 package mx.petcalli.app.controller.impl;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import mx.petcalli.app.controller.UserController;
+import mx.petcalli.app.model.LoginRequest;
 import mx.petcalli.app.model.User;
 import mx.petcalli.app.service.UserService;
 
@@ -54,11 +56,25 @@ public class UserControllerImpl implements UserController{
 	  return ResponseEntity.ok(userService.updateUser(user, id));
 	 }
 
+	@PostMapping("/login")
+    public ResponseEntity<User> login(@RequestBody LoginRequest loginRequest) {
+        User user = userService.authenticateUser(loginRequest.getEmail(), loginRequest.getPassword());
+        
+        if (user != null) {
+            return ResponseEntity.ok(user);  // Devolver el usuario si la autenticación es exitosa
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();  // Si las credenciales no son correctas
+        }
+    }
+	
+	
 	@Override
 	 @DeleteMapping("{id}")
 	 public ResponseEntity<Void> deleteUser(@PathVariable("id") Integer id) {
 	  userService.deleteUser(id);
 	  return ResponseEntity.noContent().build();
 	 }
+
+	
 
 }

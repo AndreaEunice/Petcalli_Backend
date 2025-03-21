@@ -104,6 +104,15 @@ public class UserServiceImpl implements UserService {
             }
 	}
 	
+	public User authenticateUser(String email, String password) {
+        Optional<User> userOptional = userRepository.findByEmail(email);
+        if (userOptional.isPresent() && userOptional.get().getPassword().equals(password)) {
+            return userOptional.get();  // Devuelve el usuario si la contraseña es correcta
+        }
+        return null;  // Si el usuario no existe o la contraseña es incorrecta
+    }
+	
+	
 	@Override
 	public void deleteUser(Integer id) {
 		if (id == null || id <= 0) {

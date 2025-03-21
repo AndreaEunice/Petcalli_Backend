@@ -7,6 +7,8 @@ import mx.petcalli.app.model.User;
 public interface UserController {
 	
 	ResponseEntity<User> getUserById(Integer id);
+	
+	
 
 	ResponseEntity<User> createUser(User newUser);
 
