@@ -166,4 +166,3 @@ INSERT INTO products (id, title, marca, fk_id_petType, image, price, description
 
 
 
-
