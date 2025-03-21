@@ -9,6 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -19,7 +21,6 @@ public class User {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id; 
-
 
 	@Column(name = "name", length = 45, nullable = false)
 	private String name;
@@ -36,9 +37,13 @@ public class User {
 	@Column(name = "password", length = 100, nullable = false)
 	private String password; 
 
-	    @OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user")
     @JsonIgnoreProperties("user") // Evita la recursión infinita al serializar
     private List<Order> orders;
+	
+	@ManyToOne
+	@JoinColumn( name = "fk_id_role", nullable = true)
+	private Role role;
 	
 	User (){
 		
@@ -100,15 +105,21 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public Role getRole() {
+		return role;
+	}
 
-	public void setOrders(List<Order> orders) {
-        this.orders = orders;
-    }
+	public void setRole(Role role) {
+		this.role = role;
+	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("User [name=");
+		builder.append("User [id=");
+		builder.append(id);
+		builder.append(", name=");
 		builder.append(name);
 		builder.append(", lastName=");
 		builder.append(lastName);
@@ -118,7 +129,11 @@ public class User {
 		builder.append(telephone);
 		builder.append(", password=");
 		builder.append(password);
+		builder.append(", role=");
+		builder.append(role);
 		builder.append("]");
 		return builder.toString();
 	}
+
+	
 }

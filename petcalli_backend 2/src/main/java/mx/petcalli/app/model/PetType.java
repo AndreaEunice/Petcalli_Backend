@@ -1,11 +1,18 @@
 package mx.petcalli.app.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "petsType") 
+@Table(name = "pettype") 
 public class PetType  {
 
+	
+	@OneToOne(mappedBy = "petType")
+	@JsonIgnoreProperties("petType")
+	private Product product;
+	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer id; 
@@ -16,8 +23,7 @@ public class PetType  {
 
 	@Column(name = "description", length=255, nullable = false)
 	private String description;
-	@Version
-    private Long version;
+	
 	
 	PetType(){
 		

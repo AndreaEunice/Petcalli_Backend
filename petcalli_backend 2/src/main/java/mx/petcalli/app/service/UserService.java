@@ -1,10 +1,12 @@
-/*package mx.petcalli.app.service;
+package mx.petcalli.app.service;
+
+import java.util.Optional;
 
 import mx.petcalli.app.model.User;
 
 public interface UserService {
 	User createUser(User user);
-	
+	Iterable<User> getAllUsers();
 	User getUserById(Integer id);
 	User getUserByName(String name);
 	User getUserByLasName(String lastName);
@@ -14,6 +16,5 @@ public interface UserService {
 
 	User updateUser(User user, Integer id);
 	
-	void deletUser(Integer id);
+	void deleteUser(Integer id);
 }
-*/
