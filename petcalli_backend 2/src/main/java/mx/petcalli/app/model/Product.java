@@ -17,7 +17,7 @@ public class Product {
  @Column( name = "brand", length = 45, nullable = false )
  private String brand; 
  
- @OneToOne
+ @ManyToOne
  @JoinColumn( name = "fk_id_petType", nullable = true)
  private PetType petType; 
  
@@ -30,7 +30,7 @@ public class Product {
  @Column ( name = "description", length = 500, nullable = false )
  private String description; 
  
- @OneToOne
+ @ManyToOne
  @JoinColumn( name = "fk_id_category")
  private ProductCategory productCategory; 
  
